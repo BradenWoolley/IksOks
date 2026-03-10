@@ -14,21 +14,26 @@ public class AudioManager : MonoBehaviour
     #region Methods
 
     // Todo: Implement logic.
-    public void PlayPlacementSFX()
-    {
-    }
-    public void PlayButtonSFX()
-    {
-    }
-    public void PlayWinSFX()
-    {
-    }
-    public void PlayPopupSFX()
-    {
-    }
     public void PlayBGM()
     {
     }
+
+    public void PlayButtonSFX()
+    {
+    }
+
+    public void PlayPlacementSFX()
+    {
+    }
+
+    public void PlayPopupSFX()
+    {
+    }
+
+    public void PlayWinSFX()
+    {
+    }
+
     public void StopBGM()
     {
     }
