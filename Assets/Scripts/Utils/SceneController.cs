@@ -20,11 +20,9 @@ public class SceneController : MonoBehaviour
 
     #region Methods
 
-    public void StartMatch()
+    public void ExitToMenu()
     {
-        gameBoard.ResetBoard();
-        MatchTimer.Instance.StartTimer();
-        GameManager.Instance.StartGame();
+        UnityEngine.SceneManagement.SceneManager.LoadScene("PlayScene");
     }
 
     public void RetryMatch()
@@ -33,9 +31,16 @@ public class SceneController : MonoBehaviour
         StartMatch();
     }
 
-    public void ExitToMenu()
+    public void StartMatch()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("PlayScene");
+        gameBoard.ResetBoard();
+        MatchTimer.Instance.StartTimer();
+        GameManager.Instance.StartGame();
+    }
+
+    private void HandleDraw()
+    {
+        ShowGameOver("It's a Draw!");
     }
 
     private void HandlePlayerWin(PlayerIndex winner)
@@ -44,9 +49,10 @@ public class SceneController : MonoBehaviour
         ShowGameOver(resultText);
     }
 
-    private void HandleDraw()
+    private void OnDestroy()
     {
-        ShowGameOver("It's a Draw!");
+        GameManager.Instance.OnPlayerWin -= HandlePlayerWin;
+        GameManager.Instance.OnDraw -= HandleDraw;
     }
 
     private void ShowGameOver(string resultText)
@@ -56,12 +62,6 @@ public class SceneController : MonoBehaviour
         StatsManager.Instance?.RecordMatchResult(resultText, MatchTimer.Instance.Duration);
 
         gameOverPopup?.Show(resultText, MatchTimer.FormatTime(MatchTimer.Instance.Duration));
-    }
-
-    private void OnDestroy()
-    {
-        GameManager.Instance.OnPlayerWin -= HandlePlayerWin;
-        GameManager.Instance.OnDraw -= HandleDraw;
     }
 
     private void Start()

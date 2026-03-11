@@ -9,6 +9,7 @@ public class ThemeManager : MonoBehaviour
     [Header("Placeholder Sprites (will swap with ThemeData ScriptableObject)")]
     [SerializeField]
     private Sprite oSprite;
+
     [SerializeField]
     private Sprite xSprite;
 

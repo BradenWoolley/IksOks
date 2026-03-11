@@ -6,19 +6,14 @@ using UnityEngine;
 public class GameBoard : MonoBehaviour
 {
 
-    #region Consts
-
-    #endregion
-
-
     #region Fields
 
     [Header("References")]
     [SerializeField]
-    private Cell cellPrefab;
+    private RectTransform boardContainer;
 
     [SerializeField]
-    private RectTransform boardContainer;
+    private Cell cellPrefab;
 
     [Header("Layout")]
     [SerializeField]
@@ -82,6 +77,11 @@ public class GameBoard : MonoBehaviour
         }
     }
 
+    private void HandleDraw()
+    {
+        // Todo: Some animation?
+    }
+
     private void HandleWinLine(int[] winIndices, WinDirection direction)
     {
         // Highlight winning cells — each Cell knows how to highlight itself
@@ -93,11 +93,6 @@ public class GameBoard : MonoBehaviour
         }
 
         // Todo: Draw strike line. Investigate Line renderer usage.
-    }
-
-    private void HandleDraw()
-    {
-        // Todo: Some animation?
     }
 
     private void OnDestroy()
