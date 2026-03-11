@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 // Todo: All to consts
@@ -11,18 +12,33 @@ public class SceneController : MonoBehaviour
     [SerializeField]
     private GameBoard gameBoard;
 
-    // Todo: Implement.
     [SerializeField]
     private GameOverPopup gameOverPopup;
+
+    [SerializeField]
+    private HUDController hud;
+
+    private enum PendingAction { None, Retry, Exit }
+
+    private PendingAction pendingAction = PendingAction.None;
 
     #endregion
 
 
     #region Methods
 
-    public void ExitToMenu()
+    public void OnExitPressed()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("PlayScene");
+        AudioManager.Instance?.PlayButtonSFX();
+        pendingAction = PendingAction.Exit;
+        gameOverPopup.Hide();
+    }
+
+    public void OnRetryPressed()
+    {
+        AudioManager.Instance?.PlayButtonSFX();
+        pendingAction = PendingAction.Retry;
+        gameOverPopup.Hide();
     }
 
     public void RetryMatch()
@@ -34,40 +50,74 @@ public class SceneController : MonoBehaviour
     public void StartMatch()
     {
         gameBoard.ResetBoard();
+        hud?.ResetDisplay();
         MatchTimer.Instance.StartTimer();
         GameManager.Instance.StartGame();
     }
 
+    private void EndMatch(string result)
+    {
+        MatchTimer.Instance.StopTimer();
+        StatsManager.Instance?.RecordMatchResult(result, MatchTimer.Instance.Duration);
+
+        gameOverPopup.Prepare(result, MatchTimer.FormatTime(MatchTimer.Instance.Duration));
+        gameOverPopup.Show();
+    }
+
     private void HandleDraw()
     {
-        ShowGameOver("It's a Draw!");
+        EndMatch("It's a Draw!");
     }
 
     private void HandlePlayerWin(PlayerIndex winner)
     {
-        string resultText = winner == PlayerIndex.Player1 ? "Player 1 Wins!" : "Player 2 Wins!";
-        ShowGameOver(resultText);
+        string result = winner == PlayerIndex.Player1 ? "Player 1 Wins!" : "Player 2 Wins!";
+        EndMatch(result);
+    }
+
+    private void HandlePopupHidden()
+    {
+        switch (pendingAction)
+        {
+            case PendingAction.Retry:
+                StartMatch();
+                break;
+            case PendingAction.Exit:
+                SceneManager.LoadScene("PlayScene");
+                break;
+        }
+        pendingAction = PendingAction.None;
     }
 
     private void OnDestroy()
     {
-        GameManager.Instance.OnPlayerWin -= HandlePlayerWin;
-        GameManager.Instance.OnDraw -= HandleDraw;
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.OnPlayerWin -= HandlePlayerWin;
+            GameManager.Instance.OnDraw -= HandleDraw;
+        }
+
+        if (gameOverPopup != null)
+        {
+            gameOverPopup.OnHidden -= HandlePopupHidden;
+        }
     }
 
-    private void ShowGameOver(string resultText)
+    /*private void ShowGameOver(string resultText)
     {
         MatchTimer.Instance.StopTimer();
 
         StatsManager.Instance?.RecordMatchResult(resultText, MatchTimer.Instance.Duration);
 
         gameOverPopup?.Show(resultText, MatchTimer.FormatTime(MatchTimer.Instance.Duration));
-    }
+    }*/
 
     private void Start()
     {
         GameManager.Instance.OnPlayerWin += HandlePlayerWin;
         GameManager.Instance.OnDraw += HandleDraw;
+
+        gameOverPopup.OnHidden += HandlePopupHidden;
 
         StartMatch();
     }

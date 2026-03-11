@@ -1,42 +1,72 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 
-public class GameOverPopup : MonoBehaviour
+public class GameOverPopup : PopupBase
 {
 
     #region Fields
 
+    [Header("Display")]
     [SerializeField]
     private TextMeshProUGUI durationText;
 
     [SerializeField]
     private TextMeshProUGUI resultText;
 
+    [Header("Buttons")]
+    [SerializeField]
+    private Button exitButton;
+
+    [SerializeField]
+    private Button retryButton;
+
+    private string pendingDuration;
+
+    private string pendingResult;
+
     #endregion
 
 
     #region Methods
 
-    public void Hide()
+    /// <summary>Set display data then call Show().</summary>
+    public void Prepare(string result, string duration)
     {
-        gameObject.SetActive(false);
+        pendingResult = result;
+        pendingDuration = duration;
     }
 
-    public void Show(string result, string duration)
+    protected override void OnBeforeShow()
     {
-        gameObject.SetActive(true);
-
         if (resultText)
         {
-            resultText.text = result;
+            resultText.text = pendingResult;
         }
 
         if (durationText)
         {
-            // Todo: Const format.
-            durationText.text = $"Time: {duration}";
+            // Todo: Const format
+            durationText.text = $"Time: {pendingDuration}";
         }
+    }
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        retryButton?.onClick.AddListener(() =>
+        {
+            AudioManager.Instance?.PlayButtonSFX();
+            Hide();
+        });
+
+        exitButton?.onClick.AddListener(() =>
+        {
+            AudioManager.Instance?.PlayButtonSFX();
+            Hide();
+        });
     }
 
     #endregion
