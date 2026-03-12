@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33113c1904495a94fa17128fa9450d4a, type: 3}
   m_Name: DefaultTheme
   m_EditorClassIdentifier: Assembly-CSharp::ThemeData
-  oSprite: {fileID: -4543041181297324008, guid: 23d5ce49aa4b5984ebc2701464265d37, type: 3}
-  xSprite: {fileID: 5800915590215233699, guid: 23d5ce49aa4b5984ebc2701464265d37, type: 3}
-  boardSprite: {fileID: -982550404757437972, guid: 7f9865cf6ac20f7468e13d5a5daff8ef, type: 3}
-  boardColor: {r: 1, g: 1, b: 1, a: 1}
-  backgroundColor: {r: 0.1, g: 0.1, b: 0.15, a: 1}
-  player1Color: {r: 0.2, g: 0.6, b: 1, a: 1}
-  player2Color: {r: 1, g: 0.4, b: 0.4, a: 1}
-  themeName: Default
-  previewImage: {fileID: 0}
+  OSprite: {fileID: -4543041181297324008, guid: 23d5ce49aa4b5984ebc2701464265d37, type: 3}
+  XSprite: {fileID: 5800915590215233699, guid: 23d5ce49aa4b5984ebc2701464265d37, type: 3}
+  BoardSprite: {fileID: -809804992619026284, guid: 39e0242329775814891ef673e48ae932, type: 3}
+  BoardColor: {r: 1, g: 1, b: 1, a: 1}
+  BackgroundColor: {r: 0.1, g: 0.1, b: 0.15, a: 1}
+  Player1Color: {r: 0.2, g: 0.6, b: 1, a: 1}
+  Player2Color: {r: 1, g: 0.4, b: 0.4, a: 1}
+  ThemeName: Default
+  PreviewImage: {fileID: 0}
