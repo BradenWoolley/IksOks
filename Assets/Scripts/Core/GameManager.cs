@@ -108,22 +108,13 @@ public class GameManager : MonoBehaviour
     {
         if (Instance != null && Instance != this)
         {
-            Destroy(this);
+            Destroy(gameObject);
         }
 
         else
         {
             Instance = this;
         }
-    }
-
-    private void SwitchTurn()
-    {
-        CurrentTurn = CurrentTurn == PlayerIndex.Player1
-            ? PlayerIndex.Player2
-            : PlayerIndex.Player1;
-
-        OnTurnChanged?.Invoke(CurrentTurn);
     }
 
     /// <summary>
@@ -176,31 +167,6 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
-    private bool IsLineComplete(CellMark mark, int[] indices)
-    {
-        foreach (int i in indices)
-        {
-            if (board[i] != mark)
-            {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    private int[] GetRowIndices(int row)
-    {
-        int[] indices = new int[boardSize];
-
-        for (int col = 0; col < boardSize; col++)
-        {
-            indices[col] = row * boardSize + col;
-        }
-
-        return indices;
-    }
-
     private int[] GetColumnIndices(int col)
     {
         int[] indices = new int[boardSize];
@@ -225,6 +191,40 @@ public class GameManager : MonoBehaviour
         }
 
         return indices;
+    }
+
+    private int[] GetRowIndices(int row)
+    {
+        int[] indices = new int[boardSize];
+
+        for (int col = 0; col < boardSize; col++)
+        {
+            indices[col] = row * boardSize + col;
+        }
+
+        return indices;
+    }
+
+    private bool IsLineComplete(CellMark mark, int[] indices)
+    {
+        foreach (int i in indices)
+        {
+            if (board[i] != mark)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private void SwitchTurn()
+    {
+        CurrentTurn = CurrentTurn == PlayerIndex.Player1
+            ? PlayerIndex.Player2
+            : PlayerIndex.Player1;
+
+        OnTurnChanged?.Invoke(CurrentTurn);
     }
 
     #endregion

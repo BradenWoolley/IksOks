@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 // Todo: All to consts
@@ -11,20 +12,33 @@ public class SceneController : MonoBehaviour
     [SerializeField]
     private GameBoard gameBoard;
 
-    // Todo: Implement.
     [SerializeField]
     private GameOverPopup gameOverPopup;
+
+    [SerializeField]
+    private HUDController hud;
+
+    private enum PendingAction { None, Retry, Exit }
+
+    private PendingAction pendingAction = PendingAction.None;
 
     #endregion
 
 
     #region Methods
 
-    public void StartMatch()
+    public void OnExitPressed()
     {
-        gameBoard.ResetBoard();
-        MatchTimer.Instance.StartTimer();
-        GameManager.Instance.StartGame();
+        AudioManager.Instance?.PlayButtonSFX();
+        pendingAction = PendingAction.Exit;
+        gameOverPopup.Hide();
+    }
+
+    public void OnRetryPressed()
+    {
+        AudioManager.Instance?.PlayButtonSFX();
+        pendingAction = PendingAction.Retry;
+        gameOverPopup.Hide();
     }
 
     public void RetryMatch()
@@ -33,41 +47,69 @@ public class SceneController : MonoBehaviour
         StartMatch();
     }
 
-    public void ExitToMenu()
+    public void StartMatch()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("PlayScene");
+        gameBoard.ResetBoard();
+        MatchTimer.Instance.StartTimer();
+        GameManager.Instance.StartGame();
+        hud?.ResetDisplay();
     }
 
-    private void HandlePlayerWin(PlayerIndex winner)
+    private void EndMatch(string result)
     {
-        string resultText = winner == PlayerIndex.Player1 ? "Player 1 Wins!" : "Player 2 Wins!";
-        ShowGameOver(resultText);
+        MatchTimer.Instance.StopTimer();
+        AudioManager.Instance?.PlayWinSFX();
+        StatsManager.Instance?.RecordMatchResult(result, MatchTimer.Instance.Duration);
+
+        gameOverPopup.Prepare(result, MatchTimer.FormatTime(MatchTimer.Instance.Duration));
+        gameOverPopup.Show();
     }
 
     private void HandleDraw()
     {
-        ShowGameOver("It's a Draw!");
+        EndMatch("It's a Draw!");
     }
 
-    private void ShowGameOver(string resultText)
+    private void HandlePlayerWin(PlayerIndex winner)
     {
-        MatchTimer.Instance.StopTimer();
+        string result = winner == PlayerIndex.Player1 ? "Player 1 Wins!" : "Player 2 Wins!";
+        EndMatch(result);
+    }
 
-        StatsManager.Instance?.RecordMatchResult(resultText, MatchTimer.Instance.Duration);
-
-        gameOverPopup?.Show(resultText, MatchTimer.FormatTime(MatchTimer.Instance.Duration));
+    private void HandlePopupHidden()
+    {
+        switch (pendingAction)
+        {
+            case PendingAction.Retry:
+                StartMatch();
+                break;
+            case PendingAction.Exit:
+                SceneManager.LoadScene("PlayScene");
+                break;
+        }
+        pendingAction = PendingAction.None;
     }
 
     private void OnDestroy()
     {
-        GameManager.Instance.OnPlayerWin -= HandlePlayerWin;
-        GameManager.Instance.OnDraw -= HandleDraw;
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.OnPlayerWin -= HandlePlayerWin;
+            GameManager.Instance.OnDraw -= HandleDraw;
+        }
+
+        if (gameOverPopup != null)
+        {
+            gameOverPopup.OnHidden -= HandlePopupHidden;
+        }
     }
 
     private void Start()
     {
         GameManager.Instance.OnPlayerWin += HandlePlayerWin;
         GameManager.Instance.OnDraw += HandleDraw;
+
+        gameOverPopup.OnHidden += HandlePopupHidden;
 
         StartMatch();
     }

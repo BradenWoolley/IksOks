@@ -11,10 +11,10 @@ public class Cell : MonoBehaviour
 
     [Header("References")]
     [SerializeField]
-    private Image markImage;       // shows X or O sprite
+    private Image backgroundImage; // tinted on win highlight
 
     [SerializeField]
-    private Image backgroundImage; // tinted on win highlight
+    private Image markImage;       // shows X or O sprite
 
     private Button button;
 
@@ -23,11 +23,6 @@ public class Cell : MonoBehaviour
     private bool isOccupied;
 
     private int row;
-
-    #endregion
-
-
-    #region Properties
 
     #endregion
 
@@ -56,6 +51,19 @@ public class Cell : MonoBehaviour
     }
 
     /// <summary>
+    /// Applies the visual mark. Called after GameManager confirms placement.
+    /// </summary>
+    public void SetMark(Sprite markSprite)
+    {
+        if (markImage != null)
+        {
+            markImage.sprite = markSprite;
+            markImage.enabled = true;
+            PlayPlacementAnimation();
+        }
+    }
+
+    /// <summary>
     /// Called by GameBoard when this cell is part of the winning line.
     /// </summary>
     public void SetWinHighlight(bool active)
@@ -68,17 +76,10 @@ public class Cell : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Applies the visual mark. Called after GameManager confirms placement.
-    /// </summary>
-    public void SetMark(Sprite markSprite)
+    private void Awake()
     {
-        if (markImage != null)
-        {
-            markImage.sprite = markSprite;
-            markImage.enabled = true;
-            PlayPlacementAnimation();
-        }
+        button = GetComponent<Button>();
+        button.onClick.AddListener(OnCellClicked);
     }
 
     private void OnCellClicked()
@@ -108,6 +109,11 @@ public class Cell : MonoBehaviour
         AudioManager.Instance?.PlayPlacementSFX();
     }
 
+    private void OnDestroy()
+    {
+        button.onClick.RemoveListener(OnCellClicked);
+    }
+
     private void PlayPlacementAnimation()
     {
         StopAllCoroutines();
@@ -131,17 +137,6 @@ public class Cell : MonoBehaviour
         }
 
         transform.localScale = Vector3.one;
-    }
-
-    private void Awake()
-    {
-        button = GetComponent<Button>();
-        button.onClick.AddListener(OnCellClicked);
-    }
-
-    private void OnDestroy()
-    {
-        button.onClick.RemoveListener(OnCellClicked);
     }
 
     #endregion

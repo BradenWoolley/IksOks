@@ -6,11 +6,11 @@ public class ThemeManager : MonoBehaviour
 
     #region Fields
 
-    [Header("Placeholder Sprites (will swap with ThemeData ScriptableObject)")]
+    [Header("Default Theme (used if none selected)")]
     [SerializeField]
-    private Sprite oSprite;
-    [SerializeField]
-    private Sprite xSprite;
+    private ThemeData defaultTheme;
+
+    private ThemeData activeTheme;
 
 
     #endregion
@@ -20,6 +20,8 @@ public class ThemeManager : MonoBehaviour
 
     public static ThemeManager Instance { get; private set; }
 
+    public ThemeData ActiveTheme => activeTheme;
+
     #endregion
 
 
@@ -27,22 +29,39 @@ public class ThemeManager : MonoBehaviour
 
     public Sprite GetMarkSprite(CellMark mark)
     {
+        // Todo: Would prefer one return
+        if (activeTheme == null)
+        {
+            return null;
+        }
+
         return mark == CellMark.X
-            ? xSprite
-            : oSprite;
+            ? activeTheme.xSprite
+            : activeTheme.oSprite;
+    }
+
+    public void SetTheme(ThemeData theme)
+    {
+        if (theme != null)
+        {
+            activeTheme = theme;
+        }
     }
 
     private void Awake()
     {
         if (Instance != null && Instance != this)
         {
-            Destroy(this);
+            Destroy(gameObject);
         }
 
         else
         {
             Instance = this;
         }
+
+        DontDestroyOnLoad(gameObject);
+        activeTheme = defaultTheme;
     }
 
     #endregion

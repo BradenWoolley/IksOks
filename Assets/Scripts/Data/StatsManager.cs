@@ -7,6 +7,20 @@ using UnityEngine;
 public class StatsManager : MonoBehaviour
 {
 
+    #region Consts
+
+    private const string STATS_KEY = "game_stats";
+
+    #endregion
+
+
+    #region Fields
+
+    private StatsData data;
+
+    #endregion
+
+
     #region Properties
 
     public static StatsManager Instance { get; private set; }
@@ -16,10 +30,32 @@ public class StatsManager : MonoBehaviour
 
     #region Methods
 
+    public StatsData GetStats()
+    {
+        return data;
+    }
+
     public void RecordMatchResult(string result, float duration)
     {
-        // Todo: Implement logic.
-        Debug.Log($"[StatsManager] Result: {result} | Duration: {duration:F1}s");
+        data.TotalGames++;
+        data.TotalDuration += duration;
+
+        // Todo: consts
+        if (result.Contains("Player 1"))
+        {
+            data.Player1Wins++;
+        }
+
+        else if (result.Contains("Player 2"))
+        {
+            data.Player2Wins++;
+        }
+        else
+        {
+            data.Draws++;
+        }
+
+        Save();
     }
 
     private void Awake()
@@ -35,6 +71,22 @@ public class StatsManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
+        Load();
+    }
+
+    private void Load()
+    {
+        string json = PlayerPrefs.GetString(STATS_KEY, "");
+
+        data = string.IsNullOrEmpty(json)
+            ? new StatsData()
+            : JsonUtility.FromJson<StatsData>(json);
+    }
+
+    private void Save()
+    {
+        PlayerPrefs.SetString(STATS_KEY, JsonUtility.ToJson(data));
+        PlayerPrefs.Save();
     }
 
     #endregion
