@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+
 
 /// <summary>
 /// Spawns Cell prefabs procedurally based on GameManager.BoardSize.
@@ -13,14 +15,22 @@ public class GameBoard : MonoBehaviour
     private RectTransform boardContainer;
 
     [SerializeField]
+    private Image boardBackground;
+
+    [SerializeField]
     private Cell cellPrefab;
 
     [Header("Layout")]
     [SerializeField]
     private float cellSpacing = 10f;
 
+    [Header("Strike Line")]
+    [SerializeField]
+    private StrikeLine strikeLine;
+
     private int boardSize;
 
+    // To its own ManagerClass?
     private Cell[,] cells;
 
     #endregion
@@ -36,20 +46,48 @@ public class GameBoard : MonoBehaviour
     /// <summary>Resets for rematch.</summary>
     public void ResetBoard()
     {
+        strikeLine?.Hide();
+
         foreach (Cell cell in cells)
         {
             cell.ResetCell();
         }
     }
 
+    private void DrawStrikeLine(int[] winIndices)
+    {
+        if (strikeLine != null)
+        {
+            int firstIndex = winIndices[0];
+            int lastIndex = winIndices[winIndices.Length - 1];
+
+            RectTransform fromCell = cells[firstIndex / boardSize, firstIndex % boardSize].GetComponent<RectTransform>();
+            RectTransform toCell = cells[lastIndex / boardSize, lastIndex % boardSize].GetComponent<RectTransform>();
+
+            strikeLine.Animate(fromCell, toCell);
+        }
+    }
+
     private void GenerateBoard()
+    {
+        if (boardBackground != null && ThemeManager.Instance != null)
+        {
+            boardBackground.sprite = ThemeManager.Instance.ActiveTheme.boardSprite;
+            boardBackground.color = ThemeManager.Instance.ActiveTheme.boardColor;
+        }
+    }
+
+    private void GenerateCells()
     {
         cells = new Cell[boardSize, boardSize];
 
         // Clears any forgotten objects by designer.
         foreach (Transform child in boardContainer)
         {
-            Destroy(child.gameObject);
+            if (child.TryGetComponent<Cell>(out _))
+            {
+                Destroy(child.gameObject);
+            }
         }
 
         float containerSize = boardContainer.rect.width;
@@ -92,7 +130,9 @@ public class GameBoard : MonoBehaviour
             cells[row, col].SetWinHighlight(true);
         }
 
-        // Todo: Draw strike line. Investigate Line renderer usage.
+        DrawStrikeLine(winIndices);
+
+        AudioManager.Instance?.PlayWinSFX();
     }
 
     private void OnDestroy()
@@ -109,6 +149,7 @@ public class GameBoard : MonoBehaviour
         boardSize = GameManager.Instance.BoardSize;
 
         GenerateBoard();
+        GenerateCells();
     }
 
     #endregion
