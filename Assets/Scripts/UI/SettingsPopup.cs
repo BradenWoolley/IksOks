@@ -1,3 +1,4 @@
+using Lean.Gui;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,26 +23,24 @@ public class SettingsPopup : PopupBase
 
     [Header("Toggles")]
     [SerializeField]
-    private Slider bgmToggle;
+    private LeanToggle bgmToggle;
 
     [SerializeField]
-    private Slider sfxToggle;
+    private LeanToggle sfxToggle;
 
     #endregion
 
 
     #region Methods
 
-    public static float IsBGMEnabled()
+    public static bool IsBGMEnabled()
     {
-        //return PlayerPrefs.GetInt(BGM_KEY, 1) == 1;
-        return PlayerPrefs.GetFloat(BGM_KEY, 1f);
+        return PlayerPrefs.GetInt(BGM_KEY, 1) == 1;
     }
 
-    public static float IsSFXEnabled()
+    public static bool IsSFXEnabled()
     {
-        //return PlayerPrefs.GetInt(SFX_KEY, 1) == 1;
-        return PlayerPrefs.GetFloat(SFX_KEY, 1f);
+        return PlayerPrefs.GetInt(SFX_KEY, 1) == 1;
     }
 
     protected override void Awake()
@@ -53,38 +52,20 @@ public class SettingsPopup : PopupBase
             AudioManager.Instance?.PlayButtonSFX();
             Hide();
         });
-
-        bgmToggle?.onValueChanged.AddListener(OnBGMToggled);
-        sfxToggle?.onValueChanged.AddListener(OnSFXToggled);
     }
 
     protected override void OnBeforeShow()
     {
-        // Temporarily remove listeners to prevent triggering audio calls on load
-        bgmToggle?.onValueChanged.RemoveListener(OnBGMToggled);
-        sfxToggle?.onValueChanged.RemoveListener(OnSFXToggled);
-
-        if (bgmToggle)
-        {
-            //bgmToggle.value = (PlayerPrefs.GetFloat(BGM_KEY, 1) == 1);
-            bgmToggle.value = PlayerPrefs.GetFloat(BGM_KEY, 1f);
-        }
-
-        if (sfxToggle)
-        {
-            //sfxToggle.value = PlayerPrefs.GetInt(SFX_KEY, 1) == 1;
-            sfxToggle.value = PlayerPrefs.GetFloat(SFX_KEY, 1f);
-        }
-
-        bgmToggle?.onValueChanged.AddListener(OnBGMToggled);
-        sfxToggle?.onValueChanged.AddListener(OnSFXToggled);
+        bgmToggle.On = PlayerPrefs.GetInt(BGM_KEY, 1) == 1;
+        sfxToggle.On = PlayerPrefs.GetInt(SFX_KEY, 1) == 1;
     }
 
-    private void OnBGMToggled(float toggle)
+    public void OnBGMToggled(bool isOn)
     {
-        PlayerPrefs.SetFloat(BGM_KEY, toggle /*? 1 : 0*/);
+        PlayerPrefs.SetInt(BGM_KEY, isOn ? 1 : 0);
         PlayerPrefs.Save();
-        if (toggle.Equals(1f))
+
+        if (isOn)
         {
             AudioManager.Instance?.PlayBGM();
         }
@@ -95,11 +76,10 @@ public class SettingsPopup : PopupBase
         }
     }
 
-    private void OnSFXToggled(float toggle)
+    public void OnSFXToggled(bool isOn)
     {
-        PlayerPrefs.SetFloat(SFX_KEY, toggle /*isOn ? 1 : 0*/);
+        PlayerPrefs.SetInt(SFX_KEY, isOn ? 1 : 0);
         PlayerPrefs.Save();
-        // AudioManager will read this key before playing any SFX.
     }
 
     #endregion
