@@ -2283,7 +2283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70f0ee663b189fd45b09e16517694da7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  boardSize: 3
+  rules: {fileID: 11400000, guid: 9d922206922557b4c844b29b14e95a98, type: 2}
 --- !u!114 &1611681666
 MonoBehaviour:
   m_ObjectHideFlags: 0

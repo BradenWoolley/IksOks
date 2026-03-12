@@ -7,9 +7,8 @@ public class GameManager : MonoBehaviour
 
     #region Fields
 
-    [Header("Board Settings")]
-    [SerializeField]
-    private int boardSize = 3;
+    [Header("Rules")]
+    [SerializeField] private StandardGameRules rules;
 
     // index = row * boardSize + col
     private CellMark[] board;
@@ -23,12 +22,10 @@ public class GameManager : MonoBehaviour
 
     public event Action OnDraw;
 
-    // PlayerIndex.None == draw.
     public event Action<PlayerIndex> OnPlayerWin;
 
     public event Action<PlayerIndex> OnTurnChanged;
 
-    // Cell indices of the winning line.
     public event Action<int[], WinDirection> OnWinLineFound;
 
     #endregion
@@ -38,7 +35,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance { get; private set; }
 
-    public int BoardSize => boardSize;
+    public int BoardSize => rules.BoardSize;
 
     public PlayerIndex CurrentTurn { get; private set; } = PlayerIndex.Player1;
 
@@ -51,13 +48,13 @@ public class GameManager : MonoBehaviour
 
     public CellMark GetMark(int row, int col)
     {
-        return board[row * boardSize + col];
+        return board[row * BoardSize + col];
     }
 
     /// <summary>Begin or restart a match.</summary>
     public void StartGame()
     {
-        board = new CellMark[boardSize * boardSize];
+        board = new CellMark[BoardSize * BoardSize];
         movesPlayed = 0;
         CurrentTurn = PlayerIndex.Player1;
         State = GameState.Playing;
@@ -76,7 +73,7 @@ public class GameManager : MonoBehaviour
             return false;
         }
 
-        int index = row * boardSize + col;
+        int index = row * BoardSize + col;
         if (board[index] != CellMark.Empty)
         {
             return false;
@@ -85,7 +82,7 @@ public class GameManager : MonoBehaviour
         board[index] = CurrentTurn == PlayerIndex.Player1 ? CellMark.X : CellMark.O;
         movesPlayed++;
 
-        if (CheckWin(out int[] winLine, out WinDirection direction))
+        if (rules.CheckWin(board, CurrentTurn, out int[] winLine, out WinDirection direction))
         {
             State = GameState.GameOver;
             OnWinLineFound?.Invoke(winLine, direction);
@@ -93,7 +90,7 @@ public class GameManager : MonoBehaviour
             return true;
         }
 
-        if (movesPlayed == boardSize * boardSize)
+        if (rules.CheckDraw(board, movesPlayed))
         {
             State = GameState.GameOver;
             OnDraw?.Invoke();
@@ -115,107 +112,6 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
-    }
-
-    /// <summary>
-    /// Win detection that works for any NxN board — no hardcoded cell indices.
-    /// </summary>
-    private bool CheckWin(out int[] winLine, out WinDirection direction)
-    {
-        CellMark mark = CurrentTurn == PlayerIndex.Player1
-            ? CellMark.X
-            : CellMark.O;
-
-        for (int row = 0; row < boardSize; row++)
-        {
-            if (IsLineComplete(mark, GetRowIndices(row)))
-            {
-                winLine = GetRowIndices(row);
-                direction = WinDirection.Horizontal;
-                return true;
-            }
-        }
-
-        for (int col = 0; col < boardSize; col++)
-        {
-            if (IsLineComplete(mark, GetColumnIndices(col)))
-            {
-                winLine = GetColumnIndices(col);
-                direction = WinDirection.Vertical;
-                return true;
-            }
-        }
-
-        // Diagonal (top-left to bottom-right)
-        if (IsLineComplete(mark, GetDiagonalIndices(false)))
-        {
-            winLine = GetDiagonalIndices(false);
-            direction = WinDirection.DiagonalForward;
-            return true;
-        }
-
-        // Diagonal (top-right to bottom-left)
-        if (IsLineComplete(mark, GetDiagonalIndices(true)))
-        {
-            winLine = GetDiagonalIndices(true);
-            direction = WinDirection.DiagonalBackward;
-            return true;
-        }
-
-        winLine = null;
-        direction = WinDirection.Horizontal;
-        return false;
-    }
-
-    private int[] GetColumnIndices(int col)
-    {
-        int[] indices = new int[boardSize];
-
-        for (int row = 0; row < boardSize; row++)
-        {
-            indices[row] = row * boardSize + col;
-        }
-
-        return indices;
-    }
-
-    private int[] GetDiagonalIndices(bool anti)
-    {
-        int[] indices = new int[boardSize];
-
-        for (int i = 0; i < boardSize; i++)
-        {
-            indices[i] = anti
-                ? i * boardSize + (boardSize - 1 - i)
-                : i * boardSize + i;
-        }
-
-        return indices;
-    }
-
-    private int[] GetRowIndices(int row)
-    {
-        int[] indices = new int[boardSize];
-
-        for (int col = 0; col < boardSize; col++)
-        {
-            indices[col] = row * boardSize + col;
-        }
-
-        return indices;
-    }
-
-    private bool IsLineComplete(CellMark mark, int[] indices)
-    {
-        foreach (int i in indices)
-        {
-            if (board[i] != mark)
-            {
-                return false;
-            }
-        }
-
-        return true;
     }
 
     private void SwitchTurn()
