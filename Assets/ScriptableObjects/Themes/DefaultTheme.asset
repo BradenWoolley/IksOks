@@ -20,4 +20,4 @@ MonoBehaviour:
   Player1Color: {r: 0.2, g: 0.6, b: 1, a: 1}
   Player2Color: {r: 1, g: 0.4, b: 0.4, a: 1}
   ThemeName: Default
-  PreviewImage: {fileID: 0}
+  PreviewImage: {fileID: 21300000, guid: 1d19c9580bda51c4a937e976be95013e, type: 3}
