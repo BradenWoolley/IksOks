@@ -669,15 +669,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1195230979078156784, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 1195230979078156784, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 1195230979078156784, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 2030757331938766639, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
       propertyPath: m_Name
@@ -685,7 +685,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2112339182773998884, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -195
+      value: -287
       objectReference: {fileID: 0}
     - target: {fileID: 2769165510464734590, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
       propertyPath: m_Name
@@ -765,23 +765,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4362640806363755879, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -195
+      value: -287
       objectReference: {fileID: 0}
     - target: {fileID: 4362640806363755879, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 254
+      value: 129
       objectReference: {fileID: 0}
     - target: {fileID: 4737854833047668722, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 4737854833047668722, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 4737854833047668722, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 6513543834227351130, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
       propertyPath: vertical
@@ -801,15 +801,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7593104916001039021, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -255.6394
+      value: -852
       objectReference: {fileID: 0}
     - target: {fileID: 7593104916001039021, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -609.2714
+      value: -387.4544
       objectReference: {fileID: 0}
     - target: {fileID: 7593104916001039021, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 6.8084717
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 8043492551693928644, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
       propertyPath: onOn.m_PersistentCalls.m_Calls.Array.size
@@ -2195,7 +2195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SceneController
   gameBoard: {fileID: 928165920}
   gameOverPopup: {fileID: 1223507845}
-  hud: {fileID: 0}
+  hud: {fileID: 1228796304}
 --- !u!114 &1611681665
 MonoBehaviour:
   m_ObjectHideFlags: 0

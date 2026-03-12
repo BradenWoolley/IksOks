@@ -2059,6 +2059,7 @@ GameObject:
   - component: {fileID: 556760203}
   - component: {fileID: 556760205}
   - component: {fileID: 556760204}
+  - component: {fileID: 556760206}
   m_Layer: 5
   m_Name: Player2WinsTxt
   m_TagString: Untagged
@@ -2080,10 +2081,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1696840698}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 563.5, y: -664.0962}
+  m_SizeDelta: {x: 1033, y: 222.43848}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &556760204
 MonoBehaviour:
@@ -2185,6 +2186,70 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 556760202}
   m_CullTransparentMesh: 1
+--- !u!114 &556760206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556760202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70267be151ab8134894a195db0d4accc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LeanGUI::Lean.Gui.LeanOrientation
+  anchoredPosition: 1
+  anchoredPositionL: {x: 1609, y: -108}
+  anchoredPositionP: {x: 563.5, y: -664.0962}
+  sizeDelta: 1
+  sizeDeltaL: {x: 1033, y: 222.43848}
+  sizeDeltaP: {x: 1033, y: 222.43848}
+  anchorMin: 1
+  anchorMinL: {x: 0, y: 1}
+  anchorMinP: {x: 0, y: 1}
+  anchorMax: 1
+  anchorMaxL: {x: 0, y: 1}
+  anchorMaxP: {x: 0, y: 1}
+  offsetMin: 1
+  offsetMinL: {x: 1092.5, y: -219.21924}
+  offsetMinP: {x: 47, y: -775.3154}
+  offsetMax: 1
+  offsetMaxL: {x: 2125.5, y: 3.2192383}
+  offsetMaxP: {x: 1080, y: -552.87695}
+  pivot: 1
+  pivotL: {x: 0.5, y: 0.5}
+  pivotP: {x: 0.5, y: 0.5}
+  localRotation: 1
+  localRotationL: {x: 0, y: 0, z: 0, w: 1}
+  localRotationP: {x: 0, y: 0, z: 0, w: 1}
+  localScale: 1
+  localScaleL: {x: 1, y: 1, z: 1}
+  localScaleP: {x: 1, y: 1, z: 1}
+  landscapeTransitions:
+    speed: -1
+    roots: []
+    aliases: []
+    targets: []
+    entries:
+    - root: {fileID: 0}
+      speed: -1
+      aliases: []
+  portraitTransitions:
+    speed: -1
+    roots: []
+    aliases: []
+    targets: []
+    entries:
+    - root: {fileID: 0}
+      speed: -1
+      aliases: []
+  onLandscape:
+    m_PersistentCalls:
+      m_Calls: []
+  onPortrait:
+    m_PersistentCalls:
+      m_Calls: []
+  landscape: 0
 --- !u!1 &639948453
 GameObject:
   m_ObjectHideFlags: 0
@@ -2699,6 +2764,7 @@ GameObject:
   - component: {fileID: 989113328}
   - component: {fileID: 989113330}
   - component: {fileID: 989113329}
+  - component: {fileID: 989113331}
   m_Layer: 5
   m_Name: AvgDurationTxt
   m_TagString: Untagged
@@ -2720,10 +2786,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1696840698}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 563.5, y: -1138.9731}
+  m_SizeDelta: {x: 1033, y: 222.43848}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &989113329
 MonoBehaviour:
@@ -2825,6 +2891,70 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 989113327}
   m_CullTransparentMesh: 1
+--- !u!114 &989113331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989113327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70267be151ab8134894a195db0d4accc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LeanGUI::Lean.Gui.LeanOrientation
+  anchoredPosition: 1
+  anchoredPositionL: {x: 1609, y: -417}
+  anchoredPositionP: {x: 563.5, y: -1138.9731}
+  sizeDelta: 1
+  sizeDeltaL: {x: 1033, y: 222.43848}
+  sizeDeltaP: {x: 1033, y: 222.43848}
+  anchorMin: 1
+  anchorMinL: {x: 0, y: 1}
+  anchorMinP: {x: 0, y: 1}
+  anchorMax: 1
+  anchorMaxL: {x: 0, y: 1}
+  anchorMaxP: {x: 0, y: 1}
+  offsetMin: 1
+  offsetMinL: {x: 1092.5, y: -528.21924}
+  offsetMinP: {x: 47, y: -1250.1924}
+  offsetMax: 1
+  offsetMaxL: {x: 2125.5, y: -305.78076}
+  offsetMaxP: {x: 1080, y: -1027.7539}
+  pivot: 1
+  pivotL: {x: 0.5, y: 0.5}
+  pivotP: {x: 0.5, y: 0.5}
+  localRotation: 1
+  localRotationL: {x: 0, y: 0, z: 0, w: 1}
+  localRotationP: {x: 0, y: 0, z: 0, w: 1}
+  localScale: 1
+  localScaleL: {x: 1, y: 1, z: 1}
+  localScaleP: {x: 1, y: 1, z: 1}
+  landscapeTransitions:
+    speed: -1
+    roots: []
+    aliases: []
+    targets: []
+    entries:
+    - root: {fileID: 0}
+      speed: -1
+      aliases: []
+  portraitTransitions:
+    speed: -1
+    roots: []
+    aliases: []
+    targets: []
+    entries:
+    - root: {fileID: 0}
+      speed: -1
+      aliases: []
+  onLandscape:
+    m_PersistentCalls:
+      m_Calls: []
+  onPortrait:
+    m_PersistentCalls:
+      m_Calls: []
+  landscape: 0
 --- !u!1 &1069712103
 GameObject:
   m_ObjectHideFlags: 0
@@ -3412,6 +3542,7 @@ GameObject:
   - component: {fileID: 1182070162}
   - component: {fileID: 1182070164}
   - component: {fileID: 1182070163}
+  - component: {fileID: 1182070165}
   m_Layer: 5
   m_Name: TitleBackground
   m_TagString: Untagged
@@ -3477,6 +3608,70 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1182070161}
   m_CullTransparentMesh: 1
+--- !u!114 &1182070165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182070161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70267be151ab8134894a195db0d4accc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LeanGUI::Lean.Gui.LeanOrientation
+  anchoredPosition: 1
+  anchoredPositionL: {x: 0, y: -87.6001}
+  anchoredPositionP: {x: 0, y: -87.6001}
+  sizeDelta: 1
+  sizeDeltaL: {x: 520.3058, y: 177.5}
+  sizeDeltaP: {x: 520.3058, y: 177.5}
+  anchorMin: 1
+  anchorMinL: {x: 0.5, y: 1}
+  anchorMinP: {x: 0.5, y: 1}
+  anchorMax: 1
+  anchorMaxL: {x: 0.5, y: 1}
+  anchorMaxP: {x: 0.5, y: 1}
+  offsetMin: 1
+  offsetMinL: {x: -260.1529, y: -265.1001}
+  offsetMinP: {x: -260.1529, y: -265.1001}
+  offsetMax: 1
+  offsetMaxL: {x: 260.1529, y: -87.6001}
+  offsetMaxP: {x: 260.1529, y: -87.6001}
+  pivot: 1
+  pivotL: {x: 0.5, y: 1}
+  pivotP: {x: 0.5, y: 1}
+  localRotation: 1
+  localRotationL: {x: -0, y: -0, z: -0, w: 1}
+  localRotationP: {x: -0, y: -0, z: -0, w: 1}
+  localScale: 1
+  localScaleL: {x: 1, y: 1, z: 1}
+  localScaleP: {x: 1, y: 1, z: 1}
+  landscapeTransitions:
+    speed: -1
+    roots: []
+    aliases: []
+    targets: []
+    entries:
+    - root: {fileID: 0}
+      speed: -1
+      aliases: []
+  portraitTransitions:
+    speed: -1
+    roots: []
+    aliases: []
+    targets: []
+    entries:
+    - root: {fileID: 0}
+      speed: -1
+      aliases: []
+  onLandscape:
+    m_PersistentCalls:
+      m_Calls: []
+  onPortrait:
+    m_PersistentCalls:
+      m_Calls: []
+  landscape: 0
 --- !u!1 &1197543133
 GameObject:
   m_ObjectHideFlags: 0
@@ -3856,7 +4051,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 6.8084717}
+  m_AnchoredPosition: {x: 0, y: 6.808487}
   m_SizeDelta: {x: -255.6394, y: -609.2714}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1296731339
@@ -4157,6 +4352,7 @@ GameObject:
   - component: {fileID: 1524686482}
   - component: {fileID: 1524686484}
   - component: {fileID: 1524686483}
+  - component: {fileID: 1524686485}
   m_Layer: 5
   m_Name: Player1WinsTxt
   m_TagString: Untagged
@@ -4178,10 +4374,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1696840698}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 563.5, y: -426.6577}
+  m_SizeDelta: {x: 1033, y: 222.43848}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1524686483
 MonoBehaviour:
@@ -4283,6 +4479,70 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1524686481}
   m_CullTransparentMesh: 1
+--- !u!114 &1524686485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1524686481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70267be151ab8134894a195db0d4accc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LeanGUI::Lean.Gui.LeanOrientation
+  anchoredPosition: 1
+  anchoredPositionL: {x: 380.07904, y: -247}
+  anchoredPositionP: {x: 563.5, y: -426.6577}
+  sizeDelta: 1
+  sizeDeltaL: {x: 666, y: 126}
+  sizeDeltaP: {x: 1033, y: 222.43848}
+  anchorMin: 1
+  anchorMinL: {x: 0, y: 1}
+  anchorMinP: {x: 0, y: 1}
+  anchorMax: 1
+  anchorMaxL: {x: 0, y: 1}
+  anchorMaxP: {x: 0, y: 1}
+  offsetMin: 1
+  offsetMinL: {x: 47.07904, y: -310}
+  offsetMinP: {x: 47, y: -537.87695}
+  offsetMax: 1
+  offsetMaxL: {x: 713.07904, y: -184}
+  offsetMaxP: {x: 1080, y: -315.43848}
+  pivot: 1
+  pivotL: {x: 0.5, y: 0.5}
+  pivotP: {x: 0.5, y: 0.5}
+  localRotation: 1
+  localRotationL: {x: 0, y: 0, z: 0, w: 1}
+  localRotationP: {x: 0, y: 0, z: 0, w: 1}
+  localScale: 1
+  localScaleL: {x: 1, y: 1, z: 1}
+  localScaleP: {x: 1, y: 1, z: 1}
+  landscapeTransitions:
+    speed: -1
+    roots: []
+    aliases: []
+    targets: []
+    entries:
+    - root: {fileID: 0}
+      speed: -1
+      aliases: []
+  portraitTransitions:
+    speed: -1
+    roots: []
+    aliases: []
+    targets: []
+    entries:
+    - root: {fileID: 0}
+      speed: -1
+      aliases: []
+  onLandscape:
+    m_PersistentCalls:
+      m_Calls: []
+  onPortrait:
+    m_PersistentCalls:
+      m_Calls: []
+  landscape: 0
 --- !u!1 &1553035197
 GameObject:
   m_ObjectHideFlags: 0
@@ -4295,6 +4555,7 @@ GameObject:
   - component: {fileID: 1553035201}
   - component: {fileID: 1553035200}
   - component: {fileID: 1553035199}
+  - component: {fileID: 1553035202}
   m_Layer: 5
   m_Name: CloseButton
   m_TagString: Untagged
@@ -4404,6 +4665,70 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1553035197}
   m_CullTransparentMesh: 1
+--- !u!114 &1553035202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553035197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70267be151ab8134894a195db0d4accc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LeanGUI::Lean.Gui.LeanOrientation
+  anchoredPosition: 1
+  anchoredPositionL: {x: 0, y: 42}
+  anchoredPositionP: {x: 0, y: 42}
+  sizeDelta: 1
+  sizeDeltaL: {x: 425.614, y: 156.0903}
+  sizeDeltaP: {x: 425.614, y: 156.0903}
+  anchorMin: 1
+  anchorMinL: {x: 0.5, y: 0}
+  anchorMinP: {x: 0.5, y: 0}
+  anchorMax: 1
+  anchorMaxL: {x: 0.5, y: 0}
+  anchorMaxP: {x: 0.5, y: 0}
+  offsetMin: 1
+  offsetMinL: {x: -212.807, y: 42}
+  offsetMinP: {x: -212.807, y: 42}
+  offsetMax: 1
+  offsetMaxL: {x: 212.807, y: 198.0903}
+  offsetMaxP: {x: 212.807, y: 198.0903}
+  pivot: 1
+  pivotL: {x: 0.5, y: 0}
+  pivotP: {x: 0.5, y: 0}
+  localRotation: 1
+  localRotationL: {x: 0, y: 0, z: 0, w: 1}
+  localRotationP: {x: 0, y: 0, z: 0, w: 1}
+  localScale: 1
+  localScaleL: {x: 1, y: 1, z: 1}
+  localScaleP: {x: 1, y: 1, z: 1}
+  landscapeTransitions:
+    speed: -1
+    roots: []
+    aliases: []
+    targets: []
+    entries:
+    - root: {fileID: 0}
+      speed: -1
+      aliases: []
+  portraitTransitions:
+    speed: -1
+    roots: []
+    aliases: []
+    targets: []
+    entries:
+    - root: {fileID: 0}
+      speed: -1
+      aliases: []
+  onLandscape:
+    m_PersistentCalls:
+      m_Calls: []
+  onPortrait:
+    m_PersistentCalls:
+      m_Calls: []
+  landscape: 0
 --- !u!1 &1649901442
 GameObject:
   m_ObjectHideFlags: 0
@@ -4615,23 +4940,61 @@ MonoBehaviour:
   m_GameObject: {fileID: 1696840697}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Script: {fileID: 11500000, guid: 70267be151ab8134894a195db0d4accc, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.VerticalLayoutGroup
-  m_Padding:
-    m_Left: 47
-    m_Right: 0
-    m_Top: 78
-    m_Bottom: 393
-  m_ChildAlignment: 0
-  m_Spacing: 15
-  m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 1
-  m_ChildControlHeight: 1
-  m_ChildScaleWidth: 0
-  m_ChildScaleHeight: 0
-  m_ReverseArrangement: 0
+  m_EditorClassIdentifier: LeanGUI::Lean.Gui.LeanOrientation
+  anchoredPosition: 0
+  anchoredPositionL: {x: 0, y: 0}
+  anchoredPositionP: {x: 0, y: 0}
+  sizeDelta: 0
+  sizeDeltaL: {x: 0, y: 0}
+  sizeDeltaP: {x: 0, y: 0}
+  anchorMin: 0
+  anchorMinL: {x: 0, y: 0}
+  anchorMinP: {x: 0, y: 0}
+  anchorMax: 0
+  anchorMaxL: {x: 0, y: 0}
+  anchorMaxP: {x: 0, y: 0}
+  offsetMin: 0
+  offsetMinL: {x: 0, y: 0}
+  offsetMinP: {x: 0, y: 0}
+  offsetMax: 0
+  offsetMaxL: {x: 0, y: 0}
+  offsetMaxP: {x: 0, y: 0}
+  pivot: 0
+  pivotL: {x: 0, y: 0}
+  pivotP: {x: 0, y: 0}
+  localRotation: 0
+  localRotationL: {x: 0, y: 0, z: 0, w: 1}
+  localRotationP: {x: 0, y: 0, z: 0, w: 1}
+  localScale: 0
+  localScaleL: {x: 0, y: 0, z: 0}
+  localScaleP: {x: 0, y: 0, z: 0}
+  landscapeTransitions:
+    speed: -1
+    roots: []
+    aliases: []
+    targets: []
+    entries:
+    - root: {fileID: 0}
+      speed: -1
+      aliases: []
+  portraitTransitions:
+    speed: -1
+    roots: []
+    aliases: []
+    targets: []
+    entries:
+    - root: {fileID: 0}
+      speed: -1
+      aliases: []
+  onLandscape:
+    m_PersistentCalls:
+      m_Calls: []
+  onPortrait:
+    m_PersistentCalls:
+      m_Calls: []
+  landscape: 0
 --- !u!1 &1783539636
 GameObject:
   m_ObjectHideFlags: 0
@@ -4688,6 +5051,7 @@ GameObject:
   - component: {fileID: 1803294547}
   - component: {fileID: 1803294549}
   - component: {fileID: 1803294548}
+  - component: {fileID: 1803294550}
   m_Layer: 5
   m_Name: TotalGamesTxt
   m_TagString: Untagged
@@ -4709,10 +5073,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1696840698}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 563.5, y: -189.21924}
+  m_SizeDelta: {x: 1033, y: 222.43848}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1803294548
 MonoBehaviour:
@@ -4814,6 +5178,70 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1803294546}
   m_CullTransparentMesh: 1
+--- !u!114 &1803294550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1803294546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70267be151ab8134894a195db0d4accc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LeanGUI::Lean.Gui.LeanOrientation
+  anchoredPosition: 1
+  anchoredPositionL: {x: 380.07904, y: -94}
+  anchoredPositionP: {x: 563.5, y: -189.21924}
+  sizeDelta: 1
+  sizeDeltaL: {x: 666, y: 162}
+  sizeDeltaP: {x: 1033, y: 222.43848}
+  anchorMin: 1
+  anchorMinL: {x: 0, y: 1}
+  anchorMinP: {x: 0, y: 1}
+  anchorMax: 1
+  anchorMaxL: {x: 0, y: 1}
+  anchorMaxP: {x: 0, y: 1}
+  offsetMin: 1
+  offsetMinL: {x: 47.07904, y: -175}
+  offsetMinP: {x: 47, y: -300.43848}
+  offsetMax: 1
+  offsetMaxL: {x: 713.07904, y: -13}
+  offsetMaxP: {x: 1080, y: -78}
+  pivot: 1
+  pivotL: {x: 0.5, y: 0.5}
+  pivotP: {x: 0.5, y: 0.5}
+  localRotation: 1
+  localRotationL: {x: 0, y: 0, z: 0, w: 1}
+  localRotationP: {x: 0, y: 0, z: 0, w: 1}
+  localScale: 1
+  localScaleL: {x: 1, y: 1, z: 1}
+  localScaleP: {x: 1, y: 1, z: 1}
+  landscapeTransitions:
+    speed: -1
+    roots: []
+    aliases: []
+    targets: []
+    entries:
+    - root: {fileID: 0}
+      speed: -1
+      aliases: []
+  portraitTransitions:
+    speed: -1
+    roots: []
+    aliases: []
+    targets: []
+    entries:
+    - root: {fileID: 0}
+      speed: -1
+      aliases: []
+  onLandscape:
+    m_PersistentCalls:
+      m_Calls: []
+  onPortrait:
+    m_PersistentCalls:
+      m_Calls: []
+  landscape: 0
 --- !u!1 &1809656746
 GameObject:
   m_ObjectHideFlags: 0
@@ -6197,6 +6625,7 @@ GameObject:
   - component: {fileID: 2065130934}
   - component: {fileID: 2065130936}
   - component: {fileID: 2065130935}
+  - component: {fileID: 2065130937}
   m_Layer: 5
   m_Name: DrawsTxt
   m_TagString: Untagged
@@ -6218,10 +6647,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1696840698}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 563.5, y: -901.53467}
+  m_SizeDelta: {x: 1033, y: 222.43848}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2065130935
 MonoBehaviour:
@@ -6323,6 +6752,70 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2065130933}
   m_CullTransparentMesh: 1
+--- !u!114 &2065130937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065130933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70267be151ab8134894a195db0d4accc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LeanGUI::Lean.Gui.LeanOrientation
+  anchoredPosition: 1
+  anchoredPositionL: {x: 563.5, y: -417}
+  anchoredPositionP: {x: 563.5, y: -901.53467}
+  sizeDelta: 1
+  sizeDeltaL: {x: 1033, y: 222.43848}
+  sizeDeltaP: {x: 1033, y: 222.43848}
+  anchorMin: 1
+  anchorMinL: {x: 0, y: 1}
+  anchorMinP: {x: 0, y: 1}
+  anchorMax: 1
+  anchorMaxL: {x: 0, y: 1}
+  anchorMaxP: {x: 0, y: 1}
+  offsetMin: 1
+  offsetMinL: {x: 47, y: -528.21924}
+  offsetMinP: {x: 47, y: -1012.7539}
+  offsetMax: 1
+  offsetMaxL: {x: 1080, y: -305.78076}
+  offsetMaxP: {x: 1080, y: -790.3154}
+  pivot: 1
+  pivotL: {x: 0.5, y: 0.5}
+  pivotP: {x: 0.5, y: 0.5}
+  localRotation: 1
+  localRotationL: {x: 0, y: 0, z: 0, w: 1}
+  localRotationP: {x: 0, y: 0, z: 0, w: 1}
+  localScale: 1
+  localScaleL: {x: 1, y: 1, z: 1}
+  localScaleP: {x: 1, y: 1, z: 1}
+  landscapeTransitions:
+    speed: -1
+    roots: []
+    aliases: []
+    targets: []
+    entries:
+    - root: {fileID: 0}
+      speed: -1
+      aliases: []
+  portraitTransitions:
+    speed: -1
+    roots: []
+    aliases: []
+    targets: []
+    entries:
+    - root: {fileID: 0}
+      speed: -1
+      aliases: []
+  onLandscape:
+    m_PersistentCalls:
+      m_Calls: []
+  onPortrait:
+    m_PersistentCalls:
+      m_Calls: []
+  landscape: 0
 --- !u!1 &2092284992
 GameObject:
   m_ObjectHideFlags: 0
@@ -6685,9 +7178,57 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1195230979078156784, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1195230979078156784, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1195230979078156784, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1907808451091557793, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
+      propertyPath: landscape
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1907808451091557793, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
+      propertyPath: offsetMaxP.x
+      value: -62.5864
+      objectReference: {fileID: 0}
+    - target: {fileID: 1907808451091557793, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
+      propertyPath: offsetMaxP.y
+      value: -265.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1907808451091557793, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
+      propertyPath: offsetMinP.x
+      value: 62.5864
+      objectReference: {fileID: 0}
+    - target: {fileID: 1907808451091557793, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
+      propertyPath: offsetMinP.y
+      value: 198.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 1907808451091557793, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
+      propertyPath: sizeDeltaP.x
+      value: -125.1728
+      objectReference: {fileID: 0}
+    - target: {fileID: 1907808451091557793, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
+      propertyPath: sizeDeltaP.y
+      value: -463.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1907808451091557793, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
+      propertyPath: anchoredPositionP.y
+      value: -33.505
+      objectReference: {fileID: 0}
     - target: {fileID: 2030757331938766639, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
       propertyPath: m_Name
       value: SettingsContainer
+      objectReference: {fileID: 0}
+    - target: {fileID: 2112339182773998884, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -287
       objectReference: {fileID: 0}
     - target: {fileID: 2769165510464734590, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
       propertyPath: m_Name
@@ -6761,6 +7302,14 @@ PrefabInstance:
       propertyPath: onOff.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 4362640806363755879, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -287
+      objectReference: {fileID: 0}
+    - target: {fileID: 4362640806363755879, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 129
+      objectReference: {fileID: 0}
     - target: {fileID: 4702513924897173978, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
       propertyPath: m_Color.b
       value: 0.96862745
@@ -6773,9 +7322,37 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.03137255
       objectReference: {fileID: 0}
+    - target: {fileID: 4737854833047668722, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4737854833047668722, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4737854833047668722, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 6125847421959542429, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 7593104916001039021, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -125.1728
+      objectReference: {fileID: 0}
+    - target: {fileID: 7593104916001039021, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -463.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 7593104916001039021, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7593104916001039021, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -33.505
       objectReference: {fileID: 0}
     - target: {fileID: 8043492551693928644, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
       propertyPath: onOn.m_PersistentCalls.m_Calls.Array.size
