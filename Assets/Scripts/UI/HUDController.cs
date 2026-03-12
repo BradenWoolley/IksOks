@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
+// Todo: Sort out all hardcoded strings here and in all clases.
 public class HUDController : MonoBehaviour
 {
 
@@ -69,6 +70,8 @@ public class HUDController : MonoBehaviour
         UpdateMoveDisplays();
     }
 
+    private void OnGameOver(PlayerIndex _) => SetInteractable(false);
+
     private void OnDestroy()
     {
         if (GameManager.Instance == null)
@@ -77,14 +80,15 @@ public class HUDController : MonoBehaviour
         }
 
         GameManager.Instance.OnTurnChanged -= HandleTurnChanged;
-        GameManager.Instance.OnPlayerWin -= _ => SetInteractable(false);
-        GameManager.Instance.OnDraw -= () => SetInteractable(false);
+        GameManager.Instance.OnPlayerWin -= OnGameOver;
+        GameManager.Instance.OnDraw -= OnDraw;
 
         if (MatchTimer.Instance != null)
         {
             MatchTimer.Instance.OnTimerUpdated -= UpdateTimerDisplay;
         }
     }
+    private void OnDraw() => SetInteractable(false);
 
     private void SetInteractable(bool state)
     {
@@ -97,8 +101,8 @@ public class HUDController : MonoBehaviour
     private void Start()
     {
         GameManager.Instance.OnTurnChanged += HandleTurnChanged;
-        GameManager.Instance.OnPlayerWin += _ => SetInteractable(false);
-        GameManager.Instance.OnDraw += () => SetInteractable(false);
+        GameManager.Instance.OnPlayerWin += OnGameOver;
+        GameManager.Instance.OnDraw += OnDraw;
         MatchTimer.Instance.OnTimerUpdated += UpdateTimerDisplay;
 
         settingsButton?.onClick.AddListener(() =>
