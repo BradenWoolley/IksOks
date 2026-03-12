@@ -29,19 +29,13 @@ public class MatchTimer : MonoBehaviour
     #region Methods
 
     // Todo: To extension method?
-    public static string FormatTime(float seconds)
-    {
-        int mins = Mathf.FloorToInt(seconds / 60f);
-        int secs = Mathf.FloorToInt(seconds % 60f);
-        // Todo: const format.
-        return $"{mins:00}:{secs:00}";
-    }
+
 
     public void ResetTimer()
     {
         Duration = 0f;
         IsRunning = false;
-        OnTimerUpdated?.Invoke(FormatTime(0));
+        OnTimerUpdated?.Invoke(TimerTools.FormatTime(0));
     }
 
     public void StartTimer()
@@ -85,7 +79,7 @@ public class MatchTimer : MonoBehaviour
         if (IsRunning)
         {
             Duration += Time.deltaTime;
-            OnTimerUpdated?.Invoke(FormatTime(Duration));
+            OnTimerUpdated?.Invoke(TimerTools.FormatTime(Duration));
         }
     }
 

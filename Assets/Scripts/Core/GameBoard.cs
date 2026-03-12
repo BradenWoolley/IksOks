@@ -30,7 +30,6 @@ public class GameBoard : MonoBehaviour
 
     private int boardSize;
 
-    // To its own ManagerClass?
     private Cell[,] cells;
 
     #endregion
@@ -98,7 +97,7 @@ public class GameBoard : MonoBehaviour
             for (int col = 0; col < boardSize; col++)
             {
                 Cell cell = Instantiate(cellPrefab, boardContainer);
-                // Todo: Const format
+
                 cell.name = $"Cell_{row}_{col}";
 
                 // Position within the container

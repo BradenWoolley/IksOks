@@ -24,6 +24,8 @@ public class ThemeSelectionPopup : PopupBase
 
     private int selectedThemeIndex = 0;
 
+    private Image[] themePreviews;
+
     #endregion
 
 
@@ -33,11 +35,13 @@ public class ThemeSelectionPopup : PopupBase
     {
         base.Awake();
 
-        // Wire each theme button by index
+        themePreviews = new Image[themeButtons.Length];
+
         for (int i = 0; i < themeButtons.Length; i++)
         {
-            int index = i; // capture for closure
+            int index = i;
             themeButtons[i]?.onClick.AddListener(() => SelectTheme(index));
+            themePreviews[i] = themeButtons[i].transform.GetChild(0).GetComponent<Image>();
         }
 
         startButton?.onClick.AddListener(() =>
@@ -57,34 +61,29 @@ public class ThemeSelectionPopup : PopupBase
 
     protected override void OnBeforeShow()
     {
+        for (int i = 0; i < themePreviews.Length; i++)
+        {
+            if (themePreviews[i] == null)
+            {
+                continue;
+            }
+
+            themePreviews[i].sprite = availableThemes[i].PreviewImage;
+        }
+
         SelectTheme(0);
     }
 
     private void LoadGameScene()
     {
         OnHidden -= LoadGameScene;
-        UnityEngine.SceneManagement.SceneManager.LoadScene("GameScene");
+        UnityEngine.SceneManagement.SceneManager.LoadScene(GameScenes.GameScene);
     }
 
     private void SelectTheme(int index)
     {
         AudioManager.Instance?.PlayButtonSFX();
         selectedThemeIndex = index;
-
-        // Highlight selected button — simple color tint for now
-        for (int i = 0; i < themeButtons.Length; i++)
-        {
-            if (themeButtons[i] == null)
-            {
-                continue;
-            }
-
-            var colors = themeButtons[i].colors;
-            colors.normalColor = i == index
-                ? new Color(0.6f, 0.9f, 0.6f) // selected: green tint
-                : Color.white;
-            themeButtons[i].colors = colors;
-        }
     }
 
     #endregion

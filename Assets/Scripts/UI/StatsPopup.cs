@@ -68,8 +68,8 @@ public class StatsPopup : PopupBase
         }
 
         string avgTime = data.TotalGames > 0
-            ? MatchTimer.FormatTime(data.TotalDuration / data.TotalGames)
-            : "00:00";
+            ? TimerTools.FormatTime(data.TotalDuration / data.TotalGames)
+            : TimerTools.NullTime;
 
         if (avgDurationText)
         {

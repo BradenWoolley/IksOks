@@ -14,7 +14,7 @@ public class Cell : MonoBehaviour
     private Image backgroundImage; // tinted on win highlight
 
     [SerializeField]
-    private Image markImage;       // shows X or O sprite
+    private Image markImage;
 
     private Button button;
 
@@ -120,6 +120,8 @@ public class Cell : MonoBehaviour
         StartCoroutine(PunchScale());
     }
 
+    // Ideally would make use of Lean.Animations on place for more designer options
+    // However this makes the game rules more flexible.
     private IEnumerator PunchScale()
     {
         transform.localScale = Vector3.zero;

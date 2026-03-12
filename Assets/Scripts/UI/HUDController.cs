@@ -42,7 +42,7 @@ public class HUDController : MonoBehaviour
         player1Moves = 0;
         player2Moves = 0;
         UpdateMoveDisplays();
-        UpdateTimerDisplay("00:00");
+        UpdateTimerDisplay(TimerTools.NullTime);
         SetInteractable(true);
     }
 

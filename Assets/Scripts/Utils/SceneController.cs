@@ -7,6 +7,13 @@ using UnityEngine.SceneManagement;
 public class SceneController : MonoBehaviour
 {
 
+    #region Consts
+
+    private const float PopupDelay = 1f;
+
+    #endregion
+
+
     #region Fields
 
     [Header("Scene References")]
@@ -62,8 +69,7 @@ public class SceneController : MonoBehaviour
         AudioManager.Instance?.PlayWinSFX();
         StatsManager.Instance?.RecordMatchResult(result, MatchTimer.Instance.Duration);
 
-        gameOverPopup.Prepare(result, MatchTimer.FormatTime(MatchTimer.Instance.Duration));
-        //gameOverPopup.Show();
+        gameOverPopup.Prepare(result, TimerTools.FormatTime(MatchTimer.Instance.Duration));
         StartCoroutine(ShowGameOverDelayed());
     }
 
@@ -74,7 +80,10 @@ public class SceneController : MonoBehaviour
 
     private void HandlePlayerWin(PlayerIndex winner)
     {
-        string result = winner == PlayerIndex.Player1 ? "Player 1 Wins!" : "Player 2 Wins!";
+        string result = winner == PlayerIndex.Player1
+            ? "Player 1 Wins!"
+            : "Player 2 Wins!";
+
         EndMatch(result);
     }
 
@@ -86,7 +95,7 @@ public class SceneController : MonoBehaviour
                 StartMatch();
                 break;
             case PendingAction.Exit:
-                SceneManager.LoadScene("PlayScene");
+                SceneManager.LoadScene(GameScenes.PlayScene);
                 break;
         }
         pendingAction = PendingAction.None;
@@ -109,7 +118,7 @@ public class SceneController : MonoBehaviour
     private IEnumerator ShowGameOverDelayed()
     {
         // Todo: const
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(PopupDelay);
         gameOverPopup.Show();
     }
 
