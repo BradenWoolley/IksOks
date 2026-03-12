@@ -43,23 +43,6 @@ public class SettingsPopup : PopupBase
         return PlayerPrefs.GetInt(SFX_KEY, 1) == 1;
     }
 
-    protected override void Awake()
-    {
-        base.Awake();
-
-        closeButton?.onClick.AddListener(() =>
-        {
-            AudioManager.Instance?.PlayButtonSFX();
-            Hide();
-        });
-    }
-
-    protected override void OnBeforeShow()
-    {
-        bgmToggle.On = PlayerPrefs.GetInt(BGM_KEY, 1) == 1;
-        sfxToggle.On = PlayerPrefs.GetInt(SFX_KEY, 1) == 1;
-    }
-
     public void OnBGMToggled(bool isOn)
     {
         PlayerPrefs.SetInt(BGM_KEY, isOn ? 1 : 0);
@@ -80,6 +63,23 @@ public class SettingsPopup : PopupBase
     {
         PlayerPrefs.SetInt(SFX_KEY, isOn ? 1 : 0);
         PlayerPrefs.Save();
+    }
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        closeButton?.onClick.AddListener(() =>
+        {
+            AudioManager.Instance?.PlayButtonSFX();
+            Hide();
+        });
+    }
+
+    protected override void OnBeforeShow()
+    {
+        bgmToggle.On = PlayerPrefs.GetInt(BGM_KEY, 1) == 1;
+        sfxToggle.On = PlayerPrefs.GetInt(SFX_KEY, 1) == 1;
     }
 
     #endregion
