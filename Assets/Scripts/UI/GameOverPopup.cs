@@ -48,7 +48,6 @@ public class GameOverPopup : PopupBase
 
         if (durationText)
         {
-            // Todo: Const format
             durationText.text = $"Time: {pendingDuration}";
         }
     }

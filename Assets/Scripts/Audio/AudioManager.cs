@@ -11,8 +11,6 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     private AudioConfig audioConfig;
 
-    // BGM uses the attached AudioSource for looping
-    // SFX uses a secondary source to avoid interrupting BGM
     private AudioSource bgmSource;
 
     private AudioSource sfxSource;

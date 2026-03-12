@@ -21,10 +21,17 @@ public class MenuController : MonoBehaviour
     private Button statsButton;
 
     [Header("Popups")]
-    [SerializeField] private ExitConfirmPopup exitConfirmPopup;
-    [SerializeField] private SettingsPopup settingsPopup;
-    [SerializeField] private StatsPopup statsPopup;
-    [SerializeField] private ThemeSelectionPopup themeSelectionPopup;
+    [SerializeField]
+    private ExitConfirmPopup exitConfirmPopup;
+
+    [SerializeField]
+    private SettingsPopup settingsPopup;
+
+    [SerializeField]
+    private StatsPopup statsPopup;
+
+    [SerializeField]
+    private ThemeSelectionPopup themeSelectionPopup;
 
     #endregion
 

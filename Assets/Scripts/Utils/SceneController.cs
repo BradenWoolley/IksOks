@@ -74,7 +74,10 @@ public class SceneController : MonoBehaviour
 
     private void HandlePlayerWin(PlayerIndex winner)
     {
-        string result = winner == PlayerIndex.Player1 ? "Player 1 Wins!" : "Player 2 Wins!";
+        string result = winner == PlayerIndex.Player1
+            ? "Player 1 Wins!"
+            : "Player 2 Wins!";
+
         EndMatch(result);
     }
 

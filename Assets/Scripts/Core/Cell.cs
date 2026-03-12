@@ -14,7 +14,7 @@ public class Cell : MonoBehaviour
     private Image backgroundImage; // tinted on win highlight
 
     [SerializeField]
-    private Image markImage;       // shows X or O sprite
+    private Image markImage;
 
     private Button button;
 
