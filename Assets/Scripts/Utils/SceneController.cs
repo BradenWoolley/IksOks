@@ -58,6 +58,7 @@ public class SceneController : MonoBehaviour
     private void EndMatch(string result)
     {
         MatchTimer.Instance.StopTimer();
+        AudioManager.Instance?.PlayWinSFX();
         StatsManager.Instance?.RecordMatchResult(result, MatchTimer.Instance.Duration);
 
         gameOverPopup.Prepare(result, MatchTimer.FormatTime(MatchTimer.Instance.Duration));
@@ -102,15 +103,6 @@ public class SceneController : MonoBehaviour
             gameOverPopup.OnHidden -= HandlePopupHidden;
         }
     }
-
-    /*private void ShowGameOver(string resultText)
-    {
-        MatchTimer.Instance.StopTimer();
-
-        StatsManager.Instance?.RecordMatchResult(resultText, MatchTimer.Instance.Duration);
-
-        gameOverPopup?.Show(resultText, MatchTimer.FormatTime(MatchTimer.Instance.Duration));
-    }*/
 
     private void Start()
     {
