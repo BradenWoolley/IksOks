@@ -120,6 +120,8 @@ public class Cell : MonoBehaviour
         StartCoroutine(PunchScale());
     }
 
+    // Ideally would make use of Lean.Animations on place for more designer options
+    // However this makes the game rules more flexible.
     private IEnumerator PunchScale()
     {
         transform.localScale = Vector3.zero;
