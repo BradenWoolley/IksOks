@@ -8,26 +8,26 @@ public class ThemeData : ScriptableObject
     #region Properties
 
     [Header("Marks")]
-    public Sprite oSprite;
+    public Sprite OSprite;
 
-    public Sprite xSprite;
+    public Sprite XSprite;
 
     [Header("Board")]
-    public Sprite boardSprite;
+    public Sprite BoardSprite;
 
-    public Color boardColor = Color.white;
+    public Color BoardColor = Color.white;
 
     [Header("Colors")]
-    public Color backgroundColor = new Color(0.1f, 0.1f, 0.15f);
+    public Color BackgroundColor = new Color(0.1f, 0.1f, 0.15f);
 
-    public Color player1Color = new Color(0.2f, 0.6f, 1f);
+    public Color Player1Color = new Color(0.2f, 0.6f, 1f);
 
-    public Color player2Color = new Color(1f, 0.4f, 0.4f);
+    public Color Player2Color = new Color(1f, 0.4f, 0.4f);
 
     [Header("Identity")]
-    public string themeName = "Default";
+    public string ThemeName = "Default";
 
-    public Sprite previewImage;
+    public Sprite PreviewImage;
 
     #endregion
 
