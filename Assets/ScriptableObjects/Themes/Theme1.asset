@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ThemeData
   oSprite: {fileID: -5029703094226174211, guid: 23d5ce49aa4b5984ebc2701464265d37, type: 3}
   xSprite: {fileID: 5828903514592741260, guid: 23d5ce49aa4b5984ebc2701464265d37, type: 3}
-  boardSprite: {fileID: -2870524360630259796, guid: 7f9865cf6ac20f7468e13d5a5daff8ef, type: 3}
+  boardSprite: {fileID: 7613800822721531735, guid: 7f9865cf6ac20f7468e13d5a5daff8ef, type: 3}
   boardColor: {r: 1, g: 1, b: 1, a: 1}
   backgroundColor: {r: 0.1, g: 0.1, b: 0.15, a: 1}
   player1Color: {r: 0.2, g: 0.6, b: 1, a: 1}
