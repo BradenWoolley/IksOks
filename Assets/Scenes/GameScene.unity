@@ -315,11 +315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91025e95bdc8d794192f3fab153df1b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
-  bgmClip: {fileID: 8300000, guid: b706b9abcda12954fad8076edc39ded6, type: 3}
-  buttonClickClip: {fileID: 8300000, guid: c76564141fe9c1344871d08998135c88, type: 3}
-  placementClip: {fileID: 8300000, guid: 415bee3cecead8546a1d090b59efc75c, type: 3}
-  popupClip: {fileID: 8300000, guid: 80f6f904a7497be49a721a200109a6f1, type: 3}
-  winClip: {fileID: 8300000, guid: 635b8cb270e31ca4187a6a2e4c75d741, type: 3}
+  audioConfig: {fileID: 11400000, guid: e256d7fcc4955524c8fa035f77d21964, type: 2}
 --- !u!82 &290523711
 AudioSource:
   m_ObjectHideFlags: 0
