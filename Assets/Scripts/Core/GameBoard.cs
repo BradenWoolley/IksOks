@@ -72,8 +72,8 @@ public class GameBoard : MonoBehaviour
     {
         if (boardBackground != null && ThemeManager.Instance != null)
         {
-            boardBackground.sprite = ThemeManager.Instance.ActiveTheme.boardSprite;
-            boardBackground.color = ThemeManager.Instance.ActiveTheme.boardColor;
+            boardBackground.sprite = ThemeManager.Instance.ActiveTheme.BoardSprite;
+            boardBackground.color = ThemeManager.Instance.ActiveTheme.BoardColor;
         }
     }
 
