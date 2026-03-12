@@ -22,6 +22,15 @@ public class LanguageManager : MonoBehaviour
     #region Methods
 
     /// <summary>
+    ///
+    /// </summary>
+    /// <returns></returns>
+    public string GetCurrentLanguage()
+    {
+        return localization.CurrentLanguage;
+    }
+
+    /// <summary>
     /// Change to the desired language.
     /// </summary>
     /// <param name="language"></param>
@@ -34,13 +43,14 @@ public class LanguageManager : MonoBehaviour
     {
         if (Instance != null && Instance != this)
         {
-            Destroy(this);
+            Destroy(gameObject);
         }
 
         else
         {
             Instance = this;
         }
+        DontDestroyOnLoad(gameObject);
 
         localization = GetComponent<LeanLocalization>();
     }
