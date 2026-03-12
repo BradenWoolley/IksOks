@@ -50,9 +50,9 @@ public class SceneController : MonoBehaviour
     public void StartMatch()
     {
         gameBoard.ResetBoard();
-        hud?.ResetDisplay();
         MatchTimer.Instance.StartTimer();
         GameManager.Instance.StartGame();
+        hud?.ResetDisplay();
     }
 
     private void EndMatch(string result)

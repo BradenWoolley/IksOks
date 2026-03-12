@@ -28,8 +28,6 @@ public class HUDController : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI timerText;
 
-    private bool hasGameStarted;
-
     private int player1Moves;
 
     private int player2Moves;
@@ -41,7 +39,6 @@ public class HUDController : MonoBehaviour
 
     public void ResetDisplay()
     {
-        hasGameStarted = false;
         player1Moves = 0;
         player2Moves = 0;
         UpdateMoveDisplays();
@@ -51,12 +48,6 @@ public class HUDController : MonoBehaviour
 
     private void HandleTurnChanged(PlayerIndex newTurn)
     {
-        if (!hasGameStarted)
-        {
-            hasGameStarted = true;
-            return;
-        }
-
         if (newTurn == PlayerIndex.Player2)
         {
             player1Moves++;
