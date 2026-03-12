@@ -36,8 +36,8 @@ public class ThemeManager : MonoBehaviour
         }
 
         return mark == CellMark.X
-            ? activeTheme.xSprite
-            : activeTheme.oSprite;
+            ? activeTheme.XSprite
+            : activeTheme.OSprite;
     }
 
     public void SetTheme(ThemeData theme)

@@ -35,6 +35,9 @@ public abstract class PopupBase : MonoBehaviour
 
     #region Methods
 
+    /// <summary>
+    ///
+    /// </summary>
     public void Hide()
     {
         OnBeforeHide();
@@ -47,6 +50,9 @@ public abstract class PopupBase : MonoBehaviour
         animationCoroutine = StartCoroutine(AnimateHide());
     }
 
+    /// <summary>
+    ///
+    /// </summary>
     public void Show()
     {
         OnBeforeShow();
@@ -124,7 +130,8 @@ public abstract class PopupBase : MonoBehaviour
         OnShown?.Invoke();
     }
 
-    /// <summary>Overshoot easing — gives the popup a satisfying pop-in feel.</summary>
+    // Since Lean package is in project could replace this with a Lean transition for
+    // the designer/technical artist to have greater control over.
     private float EaseOutBack(float t)
     {
         const float c1 = 1.70158f;

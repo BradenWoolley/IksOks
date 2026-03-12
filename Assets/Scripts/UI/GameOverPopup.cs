@@ -38,6 +38,7 @@ public class GameOverPopup : PopupBase
         pendingDuration = duration;
     }
 
+    /// <inheritdoc />
     protected override void OnBeforeShow()
     {
         if (resultText)

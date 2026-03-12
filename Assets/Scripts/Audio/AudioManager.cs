@@ -7,18 +7,14 @@ public class AudioManager : MonoBehaviour
 
     #region Fields
 
-    [Header("BackgroundMusic")]
-    [SerializeField] private AudioClip bgmClip;
-
-    [Header("SFX")]
-    [SerializeField] private AudioClip buttonClickClip;
-    [SerializeField] private AudioClip placementClip;
-    [SerializeField] private AudioClip popupClip;
-    [SerializeField] private AudioClip winClip;
+    [Header("Audio Config")]
+    [SerializeField]
+    private AudioConfig audioConfig;
 
     // BGM uses the attached AudioSource for looping
     // SFX uses a secondary source to avoid interrupting BGM
     private AudioSource bgmSource;
+
     private AudioSource sfxSource;
 
     #endregion
@@ -35,7 +31,7 @@ public class AudioManager : MonoBehaviour
 
     public void PlayBGM()
     {
-        if (!SettingsPopup.IsBGMEnabled() || bgmClip == null)
+        if (!SettingsPopup.IsBGMEnabled() || audioConfig.BgmClip == null)
         {
             return;
         }
@@ -50,22 +46,22 @@ public class AudioManager : MonoBehaviour
 
     public void PlayButtonSFX()
     {
-        PlaySFX(buttonClickClip);
+        PlaySFX(audioConfig.ButtonClickClip);
     }
 
     public void PlayPlacementSFX()
     {
-        PlaySFX(placementClip);
+        PlaySFX(audioConfig.PlacementClip);
     }
 
     public void PlayPopupSFX()
     {
-        PlaySFX(popupClip);
+        PlaySFX(audioConfig.PopupClip);
     }
 
     public void PlayWinSFX()
     {
-        PlaySFX(winClip);
+        PlaySFX(audioConfig.WinClip);
     }
 
     public void StopBGM()
@@ -106,7 +102,7 @@ public class AudioManager : MonoBehaviour
         bgmSource = GetComponent<AudioSource>();
         bgmSource.loop = true;
         bgmSource.playOnAwake = false;
-        bgmSource.clip = bgmClip;
+        bgmSource.clip = audioConfig.BgmClip;
 
         // Second AudioSource added dynamically for SFX.
         sfxSource = gameObject.AddComponent<AudioSource>();

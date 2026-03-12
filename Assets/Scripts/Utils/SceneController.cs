@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -62,7 +63,8 @@ public class SceneController : MonoBehaviour
         StatsManager.Instance?.RecordMatchResult(result, MatchTimer.Instance.Duration);
 
         gameOverPopup.Prepare(result, MatchTimer.FormatTime(MatchTimer.Instance.Duration));
-        gameOverPopup.Show();
+        //gameOverPopup.Show();
+        StartCoroutine(ShowGameOverDelayed());
     }
 
     private void HandleDraw()
@@ -102,6 +104,13 @@ public class SceneController : MonoBehaviour
         {
             gameOverPopup.OnHidden -= HandlePopupHidden;
         }
+    }
+
+    private IEnumerator ShowGameOverDelayed()
+    {
+        // Todo: const
+        yield return new WaitForSeconds(1f);
+        gameOverPopup.Show();
     }
 
     private void Start()
