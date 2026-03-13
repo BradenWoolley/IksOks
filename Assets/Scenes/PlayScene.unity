@@ -8706,7 +8706,7 @@ MonoBehaviour:
   drawsText: {fileID: 2065130935}
   player1WinsText: {fileID: 1524686483}
   player2WinsText: {fileID: 556760204}
-  totalGamesText: {fileID: 393197121}
+  totalGamesText: {fileID: 1803294548}
 --- !u!225 &2013624545
 CanvasGroup:
   m_ObjectHideFlags: 0
