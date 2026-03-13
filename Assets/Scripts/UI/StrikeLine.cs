@@ -19,6 +19,10 @@ public class StrikeLine : MonoBehaviour
     [SerializeField]
     private float lineThickness = 12f;
 
+    [Header("Particle Effects")]
+    [SerializeField]
+    private StrikeEffect strikeEffect;
+
     private Image image;
 
     private RectTransform rectTransform;
@@ -32,16 +36,23 @@ public class StrikeLine : MonoBehaviour
     /// Call this with the first and last cell RectTransforms of the winning line.
     /// GameBoard resolves which cells to pass in.
     /// </summary>
-    public void Animate(RectTransform fromCell, RectTransform toCell)
+    public void Animate(RectTransform fromCell, RectTransform toCell, Color effectColor)
     {
         transform.SetAsLastSibling();
         gameObject.SetActive(true);
+        strikeEffect?.SetColor(effectColor);
         StartCoroutine(DrawLine(fromCell, toCell));
+    }
+
+    public void Animate(RectTransform fromCell, RectTransform toCell)
+    {
+        Animate(fromCell, toCell, Color.white);
     }
 
     public void Hide()
     {
         StopAllCoroutines();
+        strikeEffect?.Reset();
         gameObject.SetActive(false);
     }
 
@@ -73,6 +84,8 @@ public class StrikeLine : MonoBehaviour
         rectTransform.localRotation = Quaternion.Euler(0f, 0f, angle);
         rectTransform.sizeDelta = new Vector2(0f, lineThickness);
 
+        strikeEffect?.StartTrail();
+
         float elapsed = 0f;
         while (elapsed < animationDuration)
         {
@@ -82,10 +95,25 @@ public class StrikeLine : MonoBehaviour
             float width = Mathf.Lerp(0f, fullLength, eased);
 
             rectTransform.sizeDelta = new Vector2(width, lineThickness);
+
+            // Move the effect along the line as it draws
+            if (strikeEffect != null)
+            {
+                Vector2 currentTip = fromPos + direction * width;
+                strikeEffect.transform.localPosition = new Vector3(currentTip.x, currentTip.y, 0f);
+            }
             yield return null;
         }
 
         rectTransform.sizeDelta = new Vector2(fullLength, lineThickness);
+
+        // Trigger burst at the endpoint in world space
+        if (strikeEffect != null)
+        {
+            //Vector3 endWorld = toCell.TransformPoint(Vector3.zero);
+            Vector3 endWorld = toCell.position;
+            strikeEffect.EndTrail(endWorld);
+        }
     }
 
     private float EaseOutCubic(float t)

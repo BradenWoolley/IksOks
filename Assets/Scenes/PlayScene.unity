@@ -153,9 +153,9 @@ RectTransform:
   - {fileID: 1922552408}
   m_Father: {fileID: 639948454}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 906.66675, y: -276.855}
   m_SizeDelta: {x: 160, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &29644103
@@ -259,7 +259,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &47612462
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1319,7 +1319,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tema
+  m_text: Theme
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 983def3cb842fbc41914ea19809561f5, type: 2}
   m_sharedMaterial: {fileID: 8824655253619884017, guid: 983def3cb842fbc41914ea19809561f5, type: 2}
@@ -1808,7 +1808,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Statistike
+  m_text: Stats
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 983def3cb842fbc41914ea19809561f5, type: 2}
   m_sharedMaterial: {fileID: 8824655253619884017, guid: 983def3cb842fbc41914ea19809561f5, type: 2}
@@ -1835,7 +1835,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 43.1
+  m_fontSize: 63
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2255,7 +2255,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Odigrane igre:'
+  m_text: 'Games Played:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 983def3cb842fbc41914ea19809561f5, type: 2}
   m_sharedMaterial: {fileID: 8824655253619884017, guid: 983def3cb842fbc41914ea19809561f5, type: 2}
@@ -2471,7 +2471,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Pozadinska muzika
+  m_text: Background Music
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 983def3cb842fbc41914ea19809561f5, type: 2}
   m_sharedMaterial: {fileID: 8824655253619884017, guid: 983def3cb842fbc41914ea19809561f5, type: 2}
@@ -2749,7 +2749,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Statistike
+  m_text: Stats
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 983def3cb842fbc41914ea19809561f5, type: 2}
   m_sharedMaterial: {fileID: 8824655253619884017, guid: 983def3cb842fbc41914ea19809561f5, type: 2}
@@ -3373,7 +3373,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Igraj
+  m_text: Play
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 983def3cb842fbc41914ea19809561f5, type: 2}
   m_sharedMaterial: {fileID: 8824655253619884017, guid: 983def3cb842fbc41914ea19809561f5, type: 2}
@@ -3598,7 +3598,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Nere\u0161eno:"
+  m_text: 'Draws:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 983def3cb842fbc41914ea19809561f5, type: 2}
   m_sharedMaterial: {fileID: 8824655253619884017, guid: 983def3cb842fbc41914ea19809561f5, type: 2}
@@ -3964,7 +3964,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Nazad
+  m_text: Cancel
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 983def3cb842fbc41914ea19809561f5, type: 2}
   m_sharedMaterial: {fileID: 8824655253619884017, guid: 983def3cb842fbc41914ea19809561f5, type: 2}
@@ -4319,7 +4319,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Pobeda igra\u010D 2:"
+  m_text: 'Player 2 wins:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 983def3cb842fbc41914ea19809561f5, type: 2}
   m_sharedMaterial: {fileID: 8824655253619884017, guid: 983def3cb842fbc41914ea19809561f5, type: 2}
@@ -4535,7 +4535,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Jezik
+  m_text: Language
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 983def3cb842fbc41914ea19809561f5, type: 2}
   m_sharedMaterial: {fileID: 8824655253619884017, guid: 983def3cb842fbc41914ea19809561f5, type: 2}
@@ -5387,7 +5387,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1228961004
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5787,7 +5787,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Napusti?
+  m_text: Quit Game?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 983def3cb842fbc41914ea19809561f5, type: 2}
   m_sharedMaterial: {fileID: 8824655253619884017, guid: 983def3cb842fbc41914ea19809561f5, type: 2}
@@ -6525,7 +6525,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Zvu\u010Dni efekti"
+  m_text: Sound effects
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 983def3cb842fbc41914ea19809561f5, type: 2}
   m_sharedMaterial: {fileID: 8824655253619884017, guid: 983def3cb842fbc41914ea19809561f5, type: 2}
@@ -6744,7 +6744,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Iks Oks
+  m_text: Noughts & Crosses
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 983def3cb842fbc41914ea19809561f5, type: 2}
   m_sharedMaterial: {fileID: 8824655253619884017, guid: 983def3cb842fbc41914ea19809561f5, type: 2}
@@ -6984,9 +6984,9 @@ RectTransform:
   - {fileID: 174741053}
   m_Father: {fileID: 639948454}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 173.33334, y: -276.855}
   m_SizeDelta: {x: 160, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1649901444
@@ -7973,7 +7973,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Zapo\u010Dni"
+  m_text: Start
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 983def3cb842fbc41914ea19809561f5, type: 2}
   m_sharedMaterial: {fileID: 8824655253619884017, guid: 983def3cb842fbc41914ea19809561f5, type: 2}
@@ -8000,7 +8000,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 89.15
+  m_fontSize: 95
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -8257,9 +8257,9 @@ RectTransform:
   - {fileID: 1859736119}
   m_Father: {fileID: 639948454}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 540, y: -276.855}
   m_SizeDelta: {x: 160, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1947060309
@@ -8629,7 +8629,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2013624541
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9022,7 +9022,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Pobeda igra\u010D 1:"
+  m_text: 'Player 1 wins:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 983def3cb842fbc41914ea19809561f5, type: 2}
   m_sharedMaterial: {fileID: 8824655253619884017, guid: 983def3cb842fbc41914ea19809561f5, type: 2}
@@ -9772,7 +9772,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Pode\u0161avanja"
+  m_text: Settings
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 983def3cb842fbc41914ea19809561f5, type: 2}
   m_sharedMaterial: {fileID: 8824655253619884017, guid: 983def3cb842fbc41914ea19809561f5, type: 2}
@@ -9997,7 +9997,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Prose\u010Dno trajanje:"
+  m_text: 'Avg Duration:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 983def3cb842fbc41914ea19809561f5, type: 2}
   m_sharedMaterial: {fileID: 8824655253619884017, guid: 983def3cb842fbc41914ea19809561f5, type: 2}
@@ -10316,7 +10316,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2769165510464734590, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2969087138387517161, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
       propertyPath: landscape
