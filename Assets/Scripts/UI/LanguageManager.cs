@@ -31,6 +31,16 @@ public class LanguageManager : MonoBehaviour
     }
 
     /// <summary>
+    ///
+    /// </summary>
+    /// <param name="key"></param>
+    /// <returns></returns>
+    public string GetTranslationText(string key)
+    {
+        return LeanLocalization.GetTranslationText(key);
+    }
+
+    /// <summary>
     /// Change to the desired language.
     /// </summary>
     /// <param name="language"></param>
@@ -53,6 +63,14 @@ public class LanguageManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         localization = GetComponent<LeanLocalization>();
+    }
+
+    private void OnDestroy()
+    {
+        if (Instance == this)
+        {
+            Instance = null;
+        }
     }
 
     #endregion

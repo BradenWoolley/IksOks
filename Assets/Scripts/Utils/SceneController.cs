@@ -3,11 +3,16 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-// Todo: All to consts
 public class SceneController : MonoBehaviour
 {
 
     #region Consts
+
+    private const string MatchKey = "MatchDraw";
+
+    private const string Player1Key = "MatchPlayer1";
+
+    private const string Player2Key = "MatchPlayer2";
 
     private const float PopupDelay = 1f;
 
@@ -75,14 +80,14 @@ public class SceneController : MonoBehaviour
 
     private void HandleDraw()
     {
-        EndMatch("It's a Draw!");
+        EndMatch(LanguageManager.Instance?.GetTranslationText(MatchKey));
     }
 
     private void HandlePlayerWin(PlayerIndex winner)
     {
         string result = winner == PlayerIndex.Player1
-            ? "Player 1 Wins!"
-            : "Player 2 Wins!";
+            ? LanguageManager.Instance?.GetTranslationText(Player1Key)
+            : LanguageManager.Instance?.GetTranslationText(Player2Key);
 
         EndMatch(result);
     }

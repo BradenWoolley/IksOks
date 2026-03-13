@@ -6,6 +6,13 @@ using UnityEngine.UI;
 public class GameOverPopup : PopupBase
 {
 
+    #region Consts
+
+    private const string MatchTimeKey = "MatchTime";
+
+    #endregion
+
+
     #region Fields
 
     [Header("Display")]
@@ -48,7 +55,7 @@ public class GameOverPopup : PopupBase
 
         if (durationText)
         {
-            durationText.text = $"Time: {pendingDuration}";
+            durationText.text = $"{MatchTimeKey}: {pendingDuration}";
         }
     }
 

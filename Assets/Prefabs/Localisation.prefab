@@ -1,0 +1,378 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2990535526308907676
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7509413439589995080}
+  - component: {fileID: 3981986959849926804}
+  - component: {fileID: 4369314355986441615}
+  m_Layer: 0
+  m_Name: Localisation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7509413439589995080
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2990535526308907676}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4797630529820496472}
+  - {fileID: 1978988487032519791}
+  - {fileID: 8283644068552545983}
+  - {fileID: 1282677533920392974}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3981986959849926804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2990535526308907676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 806f0696300aeac44a0e17efee222854, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LeanLocalization::Lean.Localization.LeanLocalization
+  currentLanguage: Serbian
+  detectLanguage: 2
+  defaultLanguage: English
+  saveLoad: 1
+  prefabs: []
+--- !u!114 &4369314355986441615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2990535526308907676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc623b401182cd04bae6dfa093318264, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LanguageManager
+--- !u!1 &5612921397699088424
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1282677533920392974}
+  - component: {fileID: 4026473356000502955}
+  m_Layer: 0
+  m_Name: LeanLanguageCSV (Serbian)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1282677533920392974
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5612921397699088424}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7509413439589995080}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4026473356000502955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5612921397699088424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 086ae75064fca9f46b315403da7f5d20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LeanLocalization::Lean.Localization.LeanLanguageCSV
+  Source: {fileID: 4900000, guid: bbe9c37976eb13d4594861835b1b9fbb, type: 3}
+  Format: 1
+  Language: Serbian
+  Cache: 0
+  entries:
+  - Name: GameName
+    Text: Iks Oks
+  - Name: Play
+    Text: Igraj
+  - Name: Stats
+    Text: Statistike
+  - Name: Theme
+    Text: Tema
+  - Name: Start
+    Text: "Zapo\u010Dni"
+  - Name: CancelStart
+    Text: Nazad
+  - Name: QuitGame
+    Text: Napusti?
+  - Name: Settings
+    Text: "Pode\u0161avanja"
+  - Name: Language
+    Text: Jezik
+  - Name: Music
+    Text: Pozadinska muzika
+  - Name: SFX
+    Text: "Zvu\u010Dni efekti"
+  - Name: TotalGames
+    Text: 'Odigrane igre:'
+  - Name: Draws
+    Text: "Nere\u0161eno:"
+  - Name: Player1Wins
+    Text: "Pobeda igra\u010D 1:"
+  - Name: Player2Wins
+    Text: "Pobeda igra\u010D 2:"
+  - Name: AveDuration
+    Text: "Prose\u010Dno trajanje:"
+  - Name: Player1
+    Text: "Igra\u010D 1"
+  - Name: Player2
+    Text: "Igra\u010D 2"
+  - Name: MatchPlayer1
+    Text: "Igra\u010D 1 Pobedio!"
+  - Name: MatchPlayer2
+    Text: "Igra\u010D 2 Pobedio!"
+  - Name: MatchDraw
+    Text: "Nere\u0161eno!"
+  - Name: MatchTime
+    Text: Trajanje
+--- !u!1 &7821939255500187494
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8283644068552545983}
+  - component: {fileID: 4878407125683598568}
+  m_Layer: 0
+  m_Name: LeanLanguageCSV (English)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8283644068552545983
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7821939255500187494}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7509413439589995080}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4878407125683598568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7821939255500187494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 086ae75064fca9f46b315403da7f5d20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LeanLocalization::Lean.Localization.LeanLanguageCSV
+  Source: {fileID: 4900000, guid: cedbf5f050eafec42b74894f67fcfc49, type: 3}
+  Format: 1
+  Language: English
+  Cache: 0
+  entries:
+  - Name: GameName
+    Text: Noughts & Crosses
+  - Name: Play
+    Text: Play
+  - Name: Stats
+    Text: Stats
+  - Name: Theme
+    Text: Theme
+  - Name: Start
+    Text: Start
+  - Name: CancelStart
+    Text: Cancel
+  - Name: QuitGame
+    Text: Quit Game?
+  - Name: Settings
+    Text: Settings
+  - Name: Language
+    Text: Language
+  - Name: Music
+    Text: Background Music
+  - Name: SFX
+    Text: Sound effects
+  - Name: TotalGames
+    Text: 'Games Played:'
+  - Name: Draws
+    Text: 'Draws:'
+  - Name: Player1Wins
+    Text: 'Player 1 wins:'
+  - Name: Player2Wins
+    Text: 'Player 2 wins:'
+  - Name: AveDuration
+    Text: 'Avg Duration:'
+  - Name: Player1
+    Text: Player 1
+  - Name: Player2
+    Text: Player 2
+  - Name: MatchPlayer1
+    Text: Player 1 Wins!
+  - Name: MatchPlayer2
+    Text: Player 2 Wins!
+  - Name: MatchDraw
+    Text: It's a Draw!
+  - Name: MatchTime
+    Text: Time
+--- !u!1001 &2520643344776998476
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7509413439589995080}
+    m_Modifications:
+    - target: {fileID: 2931939601580499771, guid: 6e1b4788479873b4e9c6ef0f92ece6c0, type: 3}
+      propertyPath: m_Name
+      value: Serbian
+      objectReference: {fileID: 0}
+    - target: {fileID: 4147208667215401507, guid: 6e1b4788479873b4e9c6ef0f92ece6c0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4147208667215401507, guid: 6e1b4788479873b4e9c6ef0f92ece6c0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4147208667215401507, guid: 6e1b4788479873b4e9c6ef0f92ece6c0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4147208667215401507, guid: 6e1b4788479873b4e9c6ef0f92ece6c0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4147208667215401507, guid: 6e1b4788479873b4e9c6ef0f92ece6c0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4147208667215401507, guid: 6e1b4788479873b4e9c6ef0f92ece6c0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4147208667215401507, guid: 6e1b4788479873b4e9c6ef0f92ece6c0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4147208667215401507, guid: 6e1b4788479873b4e9c6ef0f92ece6c0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4147208667215401507, guid: 6e1b4788479873b4e9c6ef0f92ece6c0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4147208667215401507, guid: 6e1b4788479873b4e9c6ef0f92ece6c0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6e1b4788479873b4e9c6ef0f92ece6c0, type: 3}
+--- !u!4 &1978988487032519791 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4147208667215401507, guid: 6e1b4788479873b4e9c6ef0f92ece6c0, type: 3}
+  m_PrefabInstance: {fileID: 2520643344776998476}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6315642460104698918
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7509413439589995080}
+    m_Modifications:
+    - target: {fileID: 765358623864573794, guid: 971ef8207f535194faf411d40b27fb77, type: 3}
+      propertyPath: m_Name
+      value: English
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527055450098318974, guid: 971ef8207f535194faf411d40b27fb77, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527055450098318974, guid: 971ef8207f535194faf411d40b27fb77, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527055450098318974, guid: 971ef8207f535194faf411d40b27fb77, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527055450098318974, guid: 971ef8207f535194faf411d40b27fb77, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527055450098318974, guid: 971ef8207f535194faf411d40b27fb77, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527055450098318974, guid: 971ef8207f535194faf411d40b27fb77, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527055450098318974, guid: 971ef8207f535194faf411d40b27fb77, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527055450098318974, guid: 971ef8207f535194faf411d40b27fb77, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527055450098318974, guid: 971ef8207f535194faf411d40b27fb77, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527055450098318974, guid: 971ef8207f535194faf411d40b27fb77, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 971ef8207f535194faf411d40b27fb77, type: 3}
+--- !u!4 &4797630529820496472 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1527055450098318974, guid: 971ef8207f535194faf411d40b27fb77, type: 3}
+  m_PrefabInstance: {fileID: 6315642460104698918}
+  m_PrefabAsset: {fileID: 0}
