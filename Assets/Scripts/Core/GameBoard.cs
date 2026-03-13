@@ -58,6 +58,7 @@ public class GameBoard : MonoBehaviour
         if (strikeLine != null)
         {
             int firstIndex = winIndices[0];
+            // Todo: Simplify.
             int lastIndex = winIndices[winIndices.Length - 1];
 
             RectTransform fromCell = cells[firstIndex / boardSize, firstIndex % boardSize].GetComponent<RectTransform>();
