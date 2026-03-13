@@ -42,29 +42,28 @@ public class StatsPopup : PopupBase
         });
     }
 
-    // Todo: Consts.
     protected override void OnBeforeShow()
     {
         StatsData data = StatsManager.Instance.GetStats();
 
         if (totalGamesText)
         {
-            totalGamesText.text = $"Games Played: {data.TotalGames}";
+            totalGamesText.text = $"{data.TotalGames}";
         }
 
         if (player1WinsText)
         {
-            player1WinsText.text = $"Player 1 Wins: {data.Player1Wins}";
+            player1WinsText.text = $"{data.Player1Wins}";
         }
 
         if (player2WinsText)
         {
-            player2WinsText.text = $"Player 2 Wins: {data.Player2Wins}";
+            player2WinsText.text = $"{data.Player2Wins}";
         }
 
         if (drawsText)
         {
-            drawsText.text = $"Draws: {data.Draws}";
+            drawsText.text = $"{data.Draws}";
         }
 
         string avgTime = data.TotalGames > 0
@@ -73,7 +72,7 @@ public class StatsPopup : PopupBase
 
         if (avgDurationText)
         {
-            avgDurationText.text = $"Avg Duration: {avgTime}";
+            avgDurationText.text = $"{avgTime}";
         }
     }
 

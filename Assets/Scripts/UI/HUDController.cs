@@ -7,6 +7,15 @@ using UnityEngine.UI;
 public class HUDController : MonoBehaviour
 {
 
+    #region Consts
+
+    private const string Player1 = "Player1";
+
+    private const string Player2 = "Player2";
+
+    #endregion
+
+
     #region Fields
 
     [Header("Buttons")]
@@ -109,12 +118,12 @@ public class HUDController : MonoBehaviour
     {
         if (player1MoveText)
         {
-            player1MoveText.text = $"P1: {player1Moves}";
+            player1MoveText.text = $"{LanguageManager.Instance?.GetTranslationText(Player1)}: {player1Moves}";
         }
 
         if (player2MoveText)
         {
-            player2MoveText.text = $"P2: {player2Moves}";
+            player2MoveText.text = $"{LanguageManager.Instance?.GetTranslationText(Player2)}: {player2Moves}";
         }
     }
 

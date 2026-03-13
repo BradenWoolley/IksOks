@@ -1,4 +1,5 @@
 using Lean.Gui;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -57,6 +58,11 @@ public class SettingsPopup : PopupBase
         {
             AudioManager.Instance?.StopBGM();
         }
+    }
+
+    public void OnLanguageChange(TMP_Dropdown dropdown)
+    {
+        LanguageManager.Instance?.SwitchLanguages(dropdown.options[dropdown.value].text);
     }
 
     public void OnSFXToggled(bool isOn)
