@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: LeanLocalization::Lean.Localization.LeanLocalization
   currentLanguage: English
-  detectLanguage: 2
+  detectLanguage: 1
   defaultLanguage: English
   saveLoad: 1
   prefabs: []
