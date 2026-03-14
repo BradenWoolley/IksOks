@@ -83,6 +83,7 @@ public class HUDController : MonoBehaviour
         GameManager.Instance.OnPlayerWin -= OnGameOver;
         GameManager.Instance.OnDraw -= OnDraw;
         settingsButton?.onClick.RemoveListener(OnSettingsClicked);
+        settingsPopup.OnHidden -= OnSettingsHidden;
 
         if (MatchTimer.Instance != null)
         {
@@ -95,6 +96,18 @@ public class HUDController : MonoBehaviour
     {
         AudioManager.Instance?.PlayButtonSFX();
         settingsPopup?.Show();
+        MatchTimer.Instance?.StopTimer();
+        settingsPopup.OnHidden += OnSettingsHidden;
+    }
+
+    private void OnSettingsHidden()
+    {
+        settingsPopup.OnHidden -= OnSettingsHidden;
+        // Only resume if game is still in progress
+        if (GameManager.Instance.State == GameState.Playing)
+        {
+            MatchTimer.Instance?.ResumeTimer();
+        }
     }
 
     private void SetInteractable(bool state)
