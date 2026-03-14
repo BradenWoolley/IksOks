@@ -102,7 +102,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Nazad
+  m_text: Back
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 983def3cb842fbc41914ea19809561f5, type: 2}
   m_sharedMaterial: {fileID: 8824655253619884017, guid: 983def3cb842fbc41914ea19809561f5, type: 2}
@@ -431,7 +431,7 @@ RectTransform:
   m_GameObject: {fileID: 1390838360696970230}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3357839, y: 0.3357839, z: 0.3357839}
+  m_LocalScale: {x: 0.33799037, y: 0.33799037, z: 0.33799037}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2803258433967376128}
@@ -439,8 +439,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 38.487}
-  m_SizeDelta: {x: 1080, y: 388.4847}
+  m_AnchoredPosition: {x: 0, y: 13.799988}
+  m_SizeDelta: {x: 1080, y: 246.7292}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &2925211626041509239
 CanvasRenderer:
@@ -513,7 +513,7 @@ MonoBehaviour:
   onPortrait:
     m_PersistentCalls:
       m_Calls: []
-  landscape: 0
+  landscape: 1
 --- !u!1 &1712840135440652238
 GameObject:
   m_ObjectHideFlags: 0
@@ -553,7 +553,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 500, y: 778.4099}
+  m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7971798638640003101
 CanvasRenderer:
@@ -656,7 +656,7 @@ MonoBehaviour:
   onPortrait:
     m_PersistentCalls:
       m_Calls: []
-  landscape: 0
+  landscape: 1
 --- !u!1 &1713440410375858226
 GameObject:
   m_ObjectHideFlags: 0
@@ -936,7 +936,7 @@ MonoBehaviour:
   onPortrait:
     m_PersistentCalls:
       m_Calls: []
-  landscape: 0
+  landscape: 1
 --- !u!1 &2070397598216938147
 GameObject:
   m_ObjectHideFlags: 0
@@ -1213,7 +1213,7 @@ MonoBehaviour:
   onPortrait:
     m_PersistentCalls:
       m_Calls: []
-  landscape: 0
+  landscape: 1
 --- !u!1 &2278741960022958224
 GameObject:
   m_ObjectHideFlags: 0
@@ -1869,7 +1869,7 @@ MonoBehaviour:
   onPortrait:
     m_PersistentCalls:
       m_Calls: []
-  landscape: 0
+  landscape: 1
 --- !u!1 &3847487800490994354
 GameObject:
   m_ObjectHideFlags: 0
@@ -2081,7 +2081,7 @@ RectTransform:
   m_GameObject: {fileID: 4315490901440973153}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
+  m_LocalScale: {x: 1.42, y: 1.42, z: 1.42}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 781145804311167486}
@@ -2091,8 +2091,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -90, y: -61}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -66, y: -62.420036}
+  m_SizeDelta: {x: 145.0806, y: 33.1557}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6675062896276653666
 CanvasRenderer:
@@ -2218,11 +2218,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: LeanGUI::Lean.Gui.LeanOrientation
   anchoredPosition: 1
-  anchoredPositionL: {x: -90, y: -61}
-  anchoredPositionP: {x: -90, y: -61}
+  anchoredPositionL: {x: -66, y: -62.420036}
+  anchoredPositionP: {x: -66, y: -62.420036}
   sizeDelta: 1
-  sizeDeltaL: {x: 160, y: 30}
-  sizeDeltaP: {x: 160, y: 30}
+  sizeDeltaL: {x: 145.0806, y: 33.1557}
+  sizeDeltaP: {x: 145.0806, y: 33.1557}
   anchorMin: 1
   anchorMinL: {x: 0.5, y: 0.5}
   anchorMinP: {x: 0.5, y: 0.5}
@@ -2230,11 +2230,11 @@ MonoBehaviour:
   anchorMaxL: {x: 0.5, y: 0.5}
   anchorMaxP: {x: 0.5, y: 0.5}
   offsetMin: 1
-  offsetMinL: {x: -170, y: -76}
-  offsetMinP: {x: -170, y: -76}
+  offsetMinL: {x: -138.5403, y: -78.99789}
+  offsetMinP: {x: -138.5403, y: -78.99789}
   offsetMax: 1
-  offsetMaxL: {x: -10, y: -46}
-  offsetMaxP: {x: -10, y: -46}
+  offsetMaxL: {x: 6.5402985, y: -45.842186}
+  offsetMaxP: {x: 6.5402985, y: -45.842186}
   pivot: 1
   pivotL: {x: 0.5, y: 0.5}
   pivotP: {x: 0.5, y: 0.5}
@@ -2242,8 +2242,8 @@ MonoBehaviour:
   localRotationL: {x: -0, y: -0, z: -0, w: 1}
   localRotationP: {x: -0, y: -0, z: -0, w: 1}
   localScale: 1
-  localScaleL: {x: 0.9, y: 0.9, z: 0.9}
-  localScaleP: {x: 0.9, y: 0.9, z: 0.9}
+  localScaleL: {x: 1.42, y: 1.42, z: 1.42}
+  localScaleP: {x: 1.42, y: 1.42, z: 1.42}
   landscapeTransitions:
     speed: -1
     roots: []
@@ -2268,7 +2268,7 @@ MonoBehaviour:
   onPortrait:
     m_PersistentCalls:
       m_Calls: []
-  landscape: 0
+  landscape: 1
 --- !u!114 &7609669776626877592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2383,7 +2383,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Zvu\u010Dni efekti"
+  m_text: Sound effects
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 983def3cb842fbc41914ea19809561f5, type: 2}
   m_sharedMaterial: {fileID: 8824655253619884017, guid: 983def3cb842fbc41914ea19809561f5, type: 2}
@@ -2535,7 +2535,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Pode\u0161avanja"
+  m_text: Settings
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 983def3cb842fbc41914ea19809561f5, type: 2}
   m_sharedMaterial: {fileID: 8824655253619884017, guid: 983def3cb842fbc41914ea19809561f5, type: 2}
@@ -2687,7 +2687,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Pozadinska muzika
+  m_text: Background Music
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 983def3cb842fbc41914ea19809561f5, type: 2}
   m_sharedMaterial: {fileID: 8824655253619884017, guid: 983def3cb842fbc41914ea19809561f5, type: 2}
@@ -3151,7 +3151,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -7.5, y: -0.5}
+  m_AnchoredPosition: {x: -7.4999847, y: -0.5}
   m_SizeDelta: {x: -35, y: -13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8660208416442576923
@@ -3182,7 +3182,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Jezik
+  m_text: Language
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 983def3cb842fbc41914ea19809561f5, type: 2}
   m_sharedMaterial: {fileID: 8824655253619884017, guid: 983def3cb842fbc41914ea19809561f5, type: 2}
@@ -3694,7 +3694,7 @@ MonoBehaviour:
   onPortrait:
     m_PersistentCalls:
       m_Calls: []
-  landscape: 0
+  landscape: 1
 --- !u!1 &8915879744825307070
 GameObject:
   m_ObjectHideFlags: 0

@@ -141,6 +141,11 @@ public class GameBoard : MonoBehaviour
 
     private void OnDestroy()
     {
+        if (GameManager.Instance == null)
+        {
+            return;
+        }
+
         GameManager.Instance.OnWinLineFound -= HandleWinLine;
         GameManager.Instance.OnDraw -= HandleDraw;
     }

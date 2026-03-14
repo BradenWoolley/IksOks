@@ -28,9 +28,6 @@ public class MatchTimer : MonoBehaviour
 
     #region Methods
 
-    // Todo: To extension method?
-
-
     public void ResetTimer()
     {
         Duration = 0f;
@@ -64,13 +61,25 @@ public class MatchTimer : MonoBehaviour
 
     private void OnDestroy()
     {
-        GameManager.Instance.OnPlayerWin -= _ => StopTimer();
+        if (GameManager.Instance == null)
+        {
+            return;
+        }
+
+        GameManager.Instance.OnPlayerWin -= OnPlayerWin;
         GameManager.Instance.OnDraw -= StopTimer;
+
+        if (Instance == this)
+        {
+            Instance = null;
+        }
     }
+
+    private void OnPlayerWin(PlayerIndex _) => StopTimer();
 
     private void Start()
     {
-        GameManager.Instance.OnPlayerWin += _ => StopTimer();
+        GameManager.Instance.OnPlayerWin += OnPlayerWin;
         GameManager.Instance.OnDraw += StopTimer;
     }
 

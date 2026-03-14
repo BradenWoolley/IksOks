@@ -82,6 +82,7 @@ public class HUDController : MonoBehaviour
         GameManager.Instance.OnTurnChanged -= HandleTurnChanged;
         GameManager.Instance.OnPlayerWin -= OnGameOver;
         GameManager.Instance.OnDraw -= OnDraw;
+        settingsButton?.onClick.RemoveListener(OnSettingsClicked);
 
         if (MatchTimer.Instance != null)
         {
@@ -89,6 +90,12 @@ public class HUDController : MonoBehaviour
         }
     }
     private void OnDraw() => SetInteractable(false);
+
+    private void OnSettingsClicked()
+    {
+        AudioManager.Instance?.PlayButtonSFX();
+        settingsPopup?.Show();
+    }
 
     private void SetInteractable(bool state)
     {
@@ -105,11 +112,7 @@ public class HUDController : MonoBehaviour
         GameManager.Instance.OnDraw += OnDraw;
         MatchTimer.Instance.OnTimerUpdated += UpdateTimerDisplay;
 
-        settingsButton?.onClick.AddListener(() =>
-        {
-            AudioManager.Instance?.PlayButtonSFX();
-            settingsPopup?.Show();
-        });
+        settingsButton?.onClick.AddListener(OnSettingsClicked);
 
         ResetDisplay();
     }

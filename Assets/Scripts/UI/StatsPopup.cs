@@ -36,11 +36,7 @@ public class StatsPopup : PopupBase
     protected override void Awake()
     {
         base.Awake();
-        closeButton?.onClick.AddListener(() =>
-        {
-            AudioManager.Instance?.PlayButtonSFX();
-            Hide();
-        });
+        closeButton?.onClick.AddListener(OnCloseClicked);
     }
 
     protected override void OnBeforeShow()
@@ -75,6 +71,17 @@ public class StatsPopup : PopupBase
         {
             avgDurationText.text = $"{avgTime}";
         }
+    }
+
+    private void OnCloseClicked()
+    {
+        AudioManager.Instance?.PlayButtonSFX();
+        Hide();
+    }
+
+    private void OnDestroy()
+    {
+        closeButton?.onClick.RemoveListener(OnCloseClicked);
     }
 
     #endregion
