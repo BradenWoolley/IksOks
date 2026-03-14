@@ -40,29 +40,42 @@ public class MenuController : MonoBehaviour
 
     private void Awake()
     {
-        playButton?.onClick.AddListener(() =>
-        {
-            AudioManager.Instance?.PlayButtonSFX();
-            themeSelectionPopup?.Show();
-        });
+        exitButton?.onClick.AddListener(OnExitClicked);
+        playButton?.onClick.AddListener(OnPlayClicked);
+        settingsButton?.onClick.AddListener(OnSettingsClicked);
+        statsButton?.onClick.AddListener(OnStatsClicked);
+    }
 
-        statsButton?.onClick.AddListener(() =>
-        {
-            AudioManager.Instance?.PlayButtonSFX();
-            statsPopup?.Show();
-        });
+    private void OnDestroy()
+    {
+        exitButton?.onClick.RemoveListener(OnExitClicked);
+        playButton?.onClick.RemoveListener(OnPlayClicked);
+        settingsButton?.onClick.RemoveListener(OnSettingsClicked);
+        statsButton?.onClick.RemoveListener(OnStatsClicked);
+    }
 
-        settingsButton?.onClick.AddListener(() =>
-        {
-            AudioManager.Instance?.PlayButtonSFX();
-            settingsPopup?.Show();
-        });
+    private void OnExitClicked()
+    {
+        AudioManager.Instance?.PlayButtonSFX();
+        exitConfirmPopup?.Show();
+    }
 
-        exitButton?.onClick.AddListener(() =>
-        {
-            AudioManager.Instance?.PlayButtonSFX();
-            exitConfirmPopup?.Show();
-        });
+    private void OnPlayClicked()
+    {
+        AudioManager.Instance?.PlayButtonSFX();
+        themeSelectionPopup?.Show();
+    }
+
+    private void OnSettingsClicked()
+    {
+        AudioManager.Instance?.PlayButtonSFX();
+        settingsPopup?.Show();
+    }
+
+    private void OnStatsClicked()
+    {
+        AudioManager.Instance?.PlayButtonSFX();
+        statsPopup?.Show();
     }
 
     private void Start()

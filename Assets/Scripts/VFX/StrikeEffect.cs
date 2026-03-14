@@ -72,13 +72,10 @@ public class StrikeEffect : MonoBehaviour
     // Todo: Interface or base
     private void SetParticleColor(ParticleSystem ps, Color color)
     {
-        if (ps != null)
+        if (ps == null)
         {
             return;
         }
-
-        /*var main = ps.main;
-        main.startColor = color;*/
 
         ParticleSystem.MainModule main = ps.main;
         main.startColor = new ParticleSystem.MinMaxGradient(color);

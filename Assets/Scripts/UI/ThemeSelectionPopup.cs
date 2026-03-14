@@ -44,19 +44,8 @@ public class ThemeSelectionPopup : PopupBase
             themePreviews[i] = themeButtons[i].transform.GetChild(0).GetComponent<Image>();
         }
 
-        startButton?.onClick.AddListener(() =>
-        {
-            AudioManager.Instance?.PlayButtonSFX();
-            ThemeManager.Instance.SetTheme(availableThemes[selectedThemeIndex]);
-            Hide();
-            OnHidden += LoadGameScene;
-        });
-
-        cancelButton?.onClick.AddListener(() =>
-        {
-            AudioManager.Instance?.PlayButtonSFX();
-            Hide();
-        });
+        startButton?.onClick.AddListener(OnStartClicked);
+        cancelButton?.onClick.AddListener(OnCancelClicked);
     }
 
     protected override void OnBeforeShow()
@@ -72,6 +61,31 @@ public class ThemeSelectionPopup : PopupBase
         }
 
         SelectTheme(0);
+    }
+
+    private void OnCancelClicked()
+    {
+        AudioManager.Instance?.PlayButtonSFX();
+        Hide();
+    }
+
+    private void OnDestroy()
+    {
+        startButton?.onClick.RemoveListener(OnStartClicked);
+        cancelButton?.onClick.RemoveListener(OnCancelClicked);
+
+        for (int i = 0; i < themeButtons.Length; i++)
+        {
+            themeButtons[i]?.onClick.RemoveAllListeners();
+        }
+    }
+
+    private void OnStartClicked()
+    {
+        AudioManager.Instance?.PlayButtonSFX();
+        ThemeManager.Instance.SetTheme(availableThemes[selectedThemeIndex]);
+        Hide();
+        OnHidden += LoadGameScene;
     }
 
     private void LoadGameScene()

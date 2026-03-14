@@ -64,6 +64,14 @@ public class ThemeManager : MonoBehaviour
         activeTheme = defaultTheme;
     }
 
+    private void OnDestroy()
+    {
+        if (Instance == this)
+        {
+            Instance = null;
+        }
+    }
+
     #endregion
 
 }

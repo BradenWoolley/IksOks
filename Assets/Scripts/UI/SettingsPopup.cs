@@ -74,18 +74,24 @@ public class SettingsPopup : PopupBase
     protected override void Awake()
     {
         base.Awake();
-
-        closeButton?.onClick.AddListener(() =>
-        {
-            AudioManager.Instance?.PlayButtonSFX();
-            Hide();
-        });
+        closeButton?.onClick.AddListener(OnCloseClicked);
     }
 
     protected override void OnBeforeShow()
     {
         bgmToggle.On = PlayerPrefs.GetInt(BGM_KEY, 1) == 1;
         sfxToggle.On = PlayerPrefs.GetInt(SFX_KEY, 1) == 1;
+    }
+
+    private void OnCloseClicked()
+    {
+        AudioManager.Instance?.PlayButtonSFX();
+        Hide();
+    }
+
+    private void OnDestroy()
+    {
+        closeButton?.onClick.RemoveListener(OnCloseClicked);
     }
 
     #endregion

@@ -18,7 +18,10 @@ public class DropDownSetter : MonoBehaviour
     {
         dropDown = GetComponent<TMP_Dropdown>();
 
-        int index = dropDown.options.FindIndex(option => option.text.Equals(LanguageManager.Instance?.GetCurrentLanguage(), System.StringComparison.InvariantCultureIgnoreCase));
+        int index = dropDown.options.FindIndex(option => option.text.Equals(
+            LanguageManager.Instance?.GetCurrentLanguage(),
+            System.StringComparison.InvariantCultureIgnoreCase));
+
         if (index >= 0)
         {
             dropDown.value = index;

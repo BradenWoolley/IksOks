@@ -62,18 +62,26 @@ public class GameOverPopup : PopupBase
     protected override void Awake()
     {
         base.Awake();
+        retryButton?.onClick.AddListener(OnRetryClicked);
+        exitButton?.onClick.AddListener(OnExitClicked);
+    }
 
-        retryButton?.onClick.AddListener(() =>
-        {
-            AudioManager.Instance?.PlayButtonSFX();
-            Hide();
-        });
+    private void OnRetryClicked()
+    {
+        AudioManager.Instance?.PlayButtonSFX();
+        Hide();
+    }
 
-        exitButton?.onClick.AddListener(() =>
-        {
-            AudioManager.Instance?.PlayButtonSFX();
-            Hide();
-        });
+    private void OnExitClicked()
+    {
+        AudioManager.Instance?.PlayButtonSFX();
+        Hide();
+    }
+
+    private void OnDestroy()
+    {
+        retryButton?.onClick.RemoveListener(OnRetryClicked);
+        exitButton?.onClick.RemoveListener(OnExitClicked);
     }
 
     #endregion

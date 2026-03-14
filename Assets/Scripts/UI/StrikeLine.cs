@@ -110,7 +110,6 @@ public class StrikeLine : MonoBehaviour
         // Trigger burst at the endpoint in world space
         if (strikeEffect != null)
         {
-            //Vector3 endWorld = toCell.TransformPoint(Vector3.zero);
             Vector3 endWorld = toCell.position;
             strikeEffect.EndTrail(endWorld);
         }

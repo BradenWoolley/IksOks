@@ -83,6 +83,14 @@ public class StatsManager : MonoBehaviour
             : JsonUtility.FromJson<StatsData>(json);
     }
 
+    private void OnDestroy()
+    {
+        if (Instance == this)
+        {
+            Instance = null;
+        }
+    }
+
     private void Save()
     {
         PlayerPrefs.SetString(STATS_KEY, JsonUtility.ToJson(data));

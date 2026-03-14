@@ -54,11 +54,11 @@ public class SceneController : MonoBehaviour
         gameOverPopup.Hide();
     }
 
-    public void RetryMatch()
+    /*public void RetryMatch()
     {
         gameOverPopup?.Hide();
         StartMatch();
-    }
+    }*/
 
     public void StartMatch()
     {
@@ -122,7 +122,6 @@ public class SceneController : MonoBehaviour
 
     private IEnumerator ShowGameOverDelayed()
     {
-        // Todo: const
         yield return new WaitForSeconds(PopupDelay);
         gameOverPopup.Show();
     }

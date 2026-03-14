@@ -55,6 +55,14 @@ public class PlacementEffect : MonoBehaviour
         Instance = this;
     }
 
+    private void OnDestroy()
+    {
+        if (Instance == this)
+        {
+            Instance = null;
+        }
+    }
+
     private void SetParticleColor(ParticleSystem ps, Color color)
     {
         if (ps == null)

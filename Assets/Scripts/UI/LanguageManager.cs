@@ -37,7 +37,7 @@ public class LanguageManager : MonoBehaviour
     /// <returns></returns>
     public string GetTranslationText(string key)
     {
-        return LeanLocalization.GetTranslationText(key);
+        return LeanLocalization.GetTranslationText(key) ?? key;
     }
 
     /// <summary>
