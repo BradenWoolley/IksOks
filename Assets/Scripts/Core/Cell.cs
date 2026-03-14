@@ -89,6 +89,10 @@ public class Cell : MonoBehaviour
             return;
         }
 
+        Color playerColor = GameManager.Instance.CurrentTurn == PlayerIndex.Player1
+            ? ThemeManager.Instance.ActiveTheme.Player1Color
+            : ThemeManager.Instance.ActiveTheme.Player2Color;
+
         bool accepted = GameManager.Instance.TryPlaceMark(row, column);
 
         if (!accepted)
@@ -106,7 +110,10 @@ public class Cell : MonoBehaviour
 
         SetMark(sprite);
 
+
+
         AudioManager.Instance?.PlayPlacementSFX();
+        PlacementEffect.Instance?.Play(GetComponent<RectTransform>(), playerColor);
     }
 
     private void OnDestroy()

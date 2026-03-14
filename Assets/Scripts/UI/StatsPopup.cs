@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class StatsPopup : PopupBase
@@ -9,7 +10,7 @@ public class StatsPopup : PopupBase
 
     [Header("Buttons")]
     [SerializeField]
-    private UnityEngine.UI.Button closeButton;
+    private Button closeButton;
 
     [Header("Display Fields")]
     [SerializeField]

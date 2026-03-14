@@ -55,7 +55,7 @@ public class GameOverPopup : PopupBase
 
         if (durationText)
         {
-            durationText.text = $"{MatchTimeKey}: {pendingDuration}";
+            durationText.text = $"{LanguageManager.Instance?.GetTranslationText(MatchTimeKey)}: {pendingDuration}";
         }
     }
 
