@@ -88,6 +88,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2253410248467740303, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 2490548298753702639, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2769165510464734590, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
       propertyPath: m_Name
       value: InGameSettingsPopup
