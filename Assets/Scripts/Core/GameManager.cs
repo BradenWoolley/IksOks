@@ -8,7 +8,8 @@ public class GameManager : MonoBehaviour
     #region Fields
 
     [Header("Rules")]
-    [SerializeField] private StandardGameRules rules;
+    [SerializeField]
+    private StandardGameRules rules;
 
     // index = row * boardSize + col
     private CellMark[] board;

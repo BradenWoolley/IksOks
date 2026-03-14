@@ -47,7 +47,22 @@ public class Cell : MonoBehaviour
             markImage.enabled = false;
         }
 
+        if (backgroundImage != null)
+        {
+            backgroundImage.enabled = true;
+        }
+
         SetWinHighlight(false);
+    }
+
+    public void SetTheme(Sprite sprite, Color color)
+    {
+        if (backgroundImage != null)
+        {
+            backgroundImage.sprite = sprite;
+            Debug.Log(color);
+            backgroundImage.color = color;
+        }
     }
 
     /// <summary>
@@ -61,6 +76,11 @@ public class Cell : MonoBehaviour
             markImage.enabled = true;
             PlayPlacementAnimation();
         }
+
+        if (backgroundImage != null)
+        {
+            backgroundImage.enabled = false;
+        }
     }
 
     /// <summary>
@@ -70,9 +90,9 @@ public class Cell : MonoBehaviour
     {
         if (backgroundImage != null)
         {
-            backgroundImage.color = active
+            /*backgroundImage.color = active
             ? new Color(1f, 0.85f, 0.2f, 1f)
-            : Color.white;
+            : Color.white;*/
         }
     }
 
@@ -109,8 +129,6 @@ public class Cell : MonoBehaviour
             : null;
 
         SetMark(sprite);
-
-
 
         AudioManager.Instance?.PlayPlacementSFX();
         PlacementEffect.Instance?.Play(GetComponent<RectTransform>(), playerColor);

@@ -14,6 +14,10 @@ public class GameBoard : MonoBehaviour
     [SerializeField]
     private RectTransform boardContainer;
 
+    [Header("Board Theme")]
+    [SerializeField]
+    private BoardTheme boardTheme;
+
     [SerializeField]
     private Image boardBackground;
 
@@ -74,11 +78,22 @@ public class GameBoard : MonoBehaviour
 
     private void GenerateBoard()
     {
-        if (boardBackground != null && ThemeManager.Instance != null)
+        if (boardTheme == null)
+        {
+            return;
+        }
+
+        if (boardBackground != null)
+        {
+            boardBackground.sprite = boardTheme.BoardSprite;
+            boardBackground.color = boardTheme.BoardColor;
+        }
+
+        /*if (boardBackground != null && ThemeManager.Instance != null)
         {
             boardBackground.sprite = ThemeManager.Instance.ActiveTheme.BoardSprite;
             boardBackground.color = ThemeManager.Instance.ActiveTheme.BoardColor;
-        }
+        }*/
     }
 
     private void GenerateCells()
@@ -102,6 +117,16 @@ public class GameBoard : MonoBehaviour
             for (int col = 0; col < boardSize; col++)
             {
                 Cell cell = Instantiate(cellPrefab, boardContainer);
+
+                // To method
+                Image cellImage = cell.GetComponent<Image>();
+                if (cellImage != null && boardTheme != null)
+                {
+                    Debug.Log("HELO!");
+                    cell.SetTheme(boardTheme.CellSprite, boardTheme.CellColor);
+                    /*cellImage.sprite = boardTheme.CellSprite;
+                    cell.SetBackground(boardTheme.CellColor);*/
+                }
 
                 cell.name = $"Cell_{row}_{col}";
 

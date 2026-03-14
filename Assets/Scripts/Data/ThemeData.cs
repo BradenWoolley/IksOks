@@ -1,7 +1,7 @@
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName = "NewTheme", menuName = "ScriptableObjects/Theme")]
+[CreateAssetMenu(fileName = "NewTheme", menuName = "ScriptableObjects/Theme/PlayerTheme")]
 public class ThemeData : ScriptableObject
 {
 
