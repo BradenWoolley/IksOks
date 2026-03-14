@@ -1,13 +1,18 @@
 using UnityEngine;
 
 
-// <summary>
-/// Todo: JSON persistence or simply PlayerPrefs for now?
+/// <summary>
+/// Handling of game stats. Uses player prefs for now
+/// but could be modified to make use of different files for protecting data from players.
 /// </summary>
 public class StatsManager : MonoBehaviour
 {
 
     #region Consts
+
+    private const string Player1 = "Player 1";
+
+    private const string Player2 = "Player 2";
 
     private const string STATS_KEY = "game_stats";
 
@@ -40,13 +45,12 @@ public class StatsManager : MonoBehaviour
         data.TotalGames++;
         data.TotalDuration += duration;
 
-        // Todo: consts
-        if (result.Contains("Player 1"))
+        if (result.Contains(Player1))
         {
             data.Player1Wins++;
         }
 
-        else if (result.Contains("Player 2"))
+        else if (result.Contains(Player2))
         {
             data.Player2Wins++;
         }

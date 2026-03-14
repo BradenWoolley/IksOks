@@ -46,7 +46,6 @@ public class GameBoard : MonoBehaviour
         return cells[row, col];
     }
 
-    /// <summary>Resets for rematch.</summary>
     public void ResetBoard()
     {
         strikeLine?.Hide();
@@ -57,20 +56,29 @@ public class GameBoard : MonoBehaviour
         }
     }
 
+    // Clears any forgotten objects by designer.
+    private void ClearBoard()
+    {
+        foreach (Transform child in boardContainer)
+        {
+            if (child.TryGetComponent<Cell>(out _))
+            {
+                Destroy(child.gameObject);
+            }
+        }
+    }
+
     private void DrawStrikeLine(int[] winIndices)
     {
         if (strikeLine != null)
         {
             int firstIndex = winIndices[0];
-            // Todo: Simplify.
             int lastIndex = winIndices[^1];
 
             RectTransform fromCell = cells[firstIndex / boardSize, firstIndex % boardSize].GetComponent<RectTransform>();
             RectTransform toCell = cells[lastIndex / boardSize, lastIndex % boardSize].GetComponent<RectTransform>();
 
-            Color winnerColor = GameManager.Instance.CurrentTurn == PlayerIndex.Player1
-            ? ThemeManager.Instance.Player1Theme.PlayerColour
-            : ThemeManager.Instance.Player2Theme.PlayerColour;
+            Color winnerColor = ColorTools.GetCurrentPlayerColor();
 
             strikeLine.Animate(fromCell, toCell, winnerColor);
         }
@@ -94,14 +102,7 @@ public class GameBoard : MonoBehaviour
     {
         cells = new Cell[boardSize, boardSize];
 
-        // Clears any forgotten objects by designer.
-        foreach (Transform child in boardContainer)
-        {
-            if (child.TryGetComponent<Cell>(out _))
-            {
-                Destroy(child.gameObject);
-            }
-        }
+        ClearBoard();
 
         float containerSize = boardContainer.rect.width;
         float cellSize = (containerSize - cellSpacing * (boardSize - 1)) / boardSize;
@@ -110,27 +111,7 @@ public class GameBoard : MonoBehaviour
         {
             for (int col = 0; col < boardSize; col++)
             {
-                Cell cell = Instantiate(cellPrefab, boardContainer);
-
-                // To method
-                Image cellImage = cell.GetComponent<Image>();
-                if (cellImage != null && boardTheme != null)
-                {
-                    cell.SetTheme(boardTheme.CellSprite, boardTheme.CellColor);
-                }
-
-                cell.name = $"Cell_{row}_{col}";
-
-                // Position within the container
-                RectTransform rt = cell.GetComponent<RectTransform>();
-                rt.sizeDelta = new Vector2(cellSize, cellSize);
-
-                float x = col * (cellSize + cellSpacing) - (containerSize - cellSize) / 2f;
-                float y = -row * (cellSize + cellSpacing) + (containerSize - cellSize) / 2f;
-                rt.anchoredPosition = new Vector2(x, y);
-
-                cell.Initialize(row, col);
-                cells[row, col] = cell;
+                InstantiateCells(containerSize, cellSize, row, col);
             }
         }
     }
@@ -142,16 +123,33 @@ public class GameBoard : MonoBehaviour
 
     private void HandleWinLine(int[] winIndices, WinDirection direction)
     {
-        // Highlight winning cells
-        foreach (int index in winIndices)
-        {
-            int row = index / boardSize;
-            int col = index % boardSize;
-        }
-
         DrawStrikeLine(winIndices);
 
         AudioManager.Instance?.PlayWinSFX();
+    }
+
+    private void InstantiateCells(float containerSize, float cellSize, int row, int col)
+    {
+        Cell cell = Instantiate(cellPrefab, boardContainer);
+
+        Image cellImage = cell.GetComponent<Image>();
+        if (cellImage != null && boardTheme != null)
+        {
+            cell.SetTheme(boardTheme.CellSprite, boardTheme.CellColor);
+        }
+
+        cell.name = $"Cell_{row}_{col}";
+
+        // Position within the container
+        RectTransform rect = cell.GetComponent<RectTransform>();
+        rect.sizeDelta = new Vector2(cellSize, cellSize);
+
+        float x = col * (cellSize + cellSpacing) - (containerSize - cellSize) / 2f;
+        float y = -row * (cellSize + cellSpacing) + (containerSize - cellSize) / 2f;
+        rect.anchoredPosition = new Vector2(x, y);
+
+        cell.Initialize(row, col);
+        cells[row, col] = cell;
     }
 
     private void OnDestroy()

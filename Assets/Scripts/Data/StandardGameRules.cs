@@ -29,7 +29,9 @@ public class StandardGameRules : ScriptableObject, IGameRules
 
     public bool CheckWin(CellMark[] board, PlayerIndex currentPlayer, out int[] winLine, out WinDirection direction)
     {
-        CellMark mark = currentPlayer == PlayerIndex.Player1 ? CellMark.X : CellMark.O;
+        CellMark mark = currentPlayer == PlayerIndex.Player1
+            ? CellMark.X
+            : CellMark.O;
 
         for (int row = 0; row < boardSize; row++)
         {
@@ -51,6 +53,7 @@ public class StandardGameRules : ScriptableObject, IGameRules
                 direction = WinDirection.Vertical;
                 return true;
             }
+
         }
 
         // Diagonal top-left to bottom-right

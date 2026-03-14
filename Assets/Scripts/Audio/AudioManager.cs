@@ -34,12 +34,10 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        if (bgmSource.isPlaying)
+        if (!bgmSource.isPlaying)
         {
-            return; // already playing, don't restart
+            bgmSource.Play();
         }
-
-        bgmSource.Play();
     }
 
     public void PlayButtonSFX()
@@ -86,12 +84,10 @@ public class AudioManager : MonoBehaviour
 
     private void PlaySFX(AudioClip clip)
     {
-        if (!SettingsPopup.IsSFXEnabled() || clip == null)
+        if (SettingsPopup.IsSFXEnabled() && clip != null)
         {
-            return;
+            sfxSource.PlayOneShot(clip);
         }
-
-        sfxSource.PlayOneShot(clip);
     }
 
     private void SetupAudioSources()

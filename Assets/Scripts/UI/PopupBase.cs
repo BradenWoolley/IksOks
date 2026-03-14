@@ -15,7 +15,8 @@ public abstract class PopupBase : MonoBehaviour
     #region Fields
 
     [Header("Animation Settings")]
-    [SerializeField] private float animationDuration = 0.2f;
+    [SerializeField]
+    private float animationDuration = 0.2f;
 
     private Coroutine animationCoroutine;
 
@@ -36,7 +37,7 @@ public abstract class PopupBase : MonoBehaviour
     #region Methods
 
     /// <summary>
-    ///
+    /// Hides the pop-up.
     /// </summary>
     public void Hide()
     {
@@ -51,7 +52,7 @@ public abstract class PopupBase : MonoBehaviour
     }
 
     /// <summary>
-    ///
+    /// Displays the pop-up.
     /// </summary>
     public void Show()
     {
@@ -77,12 +78,16 @@ public abstract class PopupBase : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    /// <summary>Called before Hide animation.</summary>
+    /// <summary>
+    /// Called before Hide animation.
+    /// </summary>
     protected virtual void OnBeforeHide()
     {
     }
 
-    /// <summary>Called before Show animation. Set text/data here.</summary>
+    /// <summary>
+    /// Called before Show animation. Set text/data here.
+    /// </summary>
     protected virtual void OnBeforeShow()
     {
     }

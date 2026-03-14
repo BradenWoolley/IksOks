@@ -67,19 +67,19 @@ public class StrikeLine : MonoBehaviour
 
     private IEnumerator DrawLine(RectTransform fromCell, RectTransform toCell)
     {
-        // Get cell centers in local space of the BoardContainer
+        // Get cell centers in local space of the BoardContainer.
         Vector2 fromPos = fromCell.anchoredPosition;
         Vector2 toPos = toCell.anchoredPosition;
 
-        // Position the line at the midpoint between the two cells
+        // Position the line at the midpoint between the two cells.
         Vector2 midpoint = (fromPos + toPos) / 2f;
         float fullLength = Vector2.Distance(fromPos, toPos);
 
-        // Angle between the two cells
+        // Angle between the two cells.
         Vector2 direction = (toPos - fromPos).normalized;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        // Set position and rotation — width animates from 0 to fullLength
+        // Set position and rotation — width animates from 0 to fullLength.
         rectTransform.anchoredPosition = midpoint;
         rectTransform.localRotation = Quaternion.Euler(0f, 0f, angle);
         rectTransform.sizeDelta = new Vector2(0f, lineThickness);
@@ -96,7 +96,7 @@ public class StrikeLine : MonoBehaviour
 
             rectTransform.sizeDelta = new Vector2(width, lineThickness);
 
-            // Move the effect along the line as it draws
+            // Move the effect along the line as it draws.
             if (strikeEffect != null)
             {
                 Vector2 currentTip = fromPos + direction * width;
@@ -107,7 +107,7 @@ public class StrikeLine : MonoBehaviour
 
         rectTransform.sizeDelta = new Vector2(fullLength, lineThickness);
 
-        // Trigger burst at the endpoint in world space
+        // Trigger burst at the endpoint in world space.
         if (strikeEffect != null)
         {
             Vector3 endWorld = toCell.position;
