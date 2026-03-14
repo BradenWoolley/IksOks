@@ -52,8 +52,8 @@ public class StrikeEffect : MonoBehaviour
 
     public void SetColor(Color color)
     {
-        SetParticleColor(trailEffect, color);
-        SetParticleColor(burstEffect, color);
+        ParticleTools.SetColor(trailEffect, color);
+        ParticleTools.SetColor(burstEffect, color);
     }
 
     /// <summary>
@@ -61,24 +61,10 @@ public class StrikeEffect : MonoBehaviour
     /// </summary>
     public void StartTrail()
     {
-        if (trailEffect == null)
+        if (trailEffect != null)
         {
-            return;
+            trailEffect.Play();
         }
-
-        trailEffect.Play();
-    }
-
-    // Todo: Interface or base
-    private void SetParticleColor(ParticleSystem ps, Color color)
-    {
-        if (ps == null)
-        {
-            return;
-        }
-
-        ParticleSystem.MainModule main = ps.main;
-        main.startColor = new ParticleSystem.MinMaxGradient(color);
     }
 
     #endregion
