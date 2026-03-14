@@ -54,12 +54,11 @@ public class LanguageManager : MonoBehaviour
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
+            return;
         }
 
-        else
-        {
-            Instance = this;
-        }
+        Instance = this;
+
         DontDestroyOnLoad(gameObject);
 
         localization = GetComponent<LeanLocalization>();

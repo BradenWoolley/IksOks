@@ -7,6 +7,8 @@ public class ThemeSelectorGroup : MonoBehaviour
 
     #region Consts
 
+    private const int DefaultIndex = 0;
+
     private const int PreviewDepth = 1;
 
     #endregion
@@ -48,12 +50,9 @@ public class ThemeSelectorGroup : MonoBehaviour
                 previews[i].sprite = availableThemes[i].PlayerSprite;
                 previews[i].preserveAspect = true;
             }
-
-            int index = i;
-            themeButtons[i]?.onClick.AddListener(() => SelectTheme(index));
         }
 
-        SelectTheme(0);
+        SelectTheme(DefaultIndex);
     }
 
     private void SelectTheme(int index)
@@ -70,7 +69,16 @@ public class ThemeSelectorGroup : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
+    private void OnEnable()
+    {
+        for (int i = 0; i < themeButtons.Length; i++)
+        {
+            int index = i;
+            themeButtons[i]?.onClick.AddListener(() => SelectTheme(index));
+        }
+    }
+
+    private void OnDisable()
     {
         for (int i = 0; i < themeButtons.Length; i++)
         {

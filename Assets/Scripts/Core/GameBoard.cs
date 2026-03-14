@@ -116,11 +116,6 @@ public class GameBoard : MonoBehaviour
         }
     }
 
-    private void HandleDraw()
-    {
-        // Todo: Some animation?
-    }
-
     private void HandleWinLine(int[] winIndices, WinDirection direction)
     {
         DrawStrikeLine(winIndices);
@@ -160,13 +155,11 @@ public class GameBoard : MonoBehaviour
         }
 
         GameManager.Instance.OnWinLineFound -= HandleWinLine;
-        GameManager.Instance.OnDraw -= HandleDraw;
     }
 
     private void Start()
     {
         GameManager.Instance.OnWinLineFound += HandleWinLine;
-        GameManager.Instance.OnDraw += HandleDraw;
 
         boardSize = GameManager.Instance.BoardSize;
 

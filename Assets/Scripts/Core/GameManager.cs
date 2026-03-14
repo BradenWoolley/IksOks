@@ -107,12 +107,10 @@ public class GameManager : MonoBehaviour
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
+            return;
         }
 
-        else
-        {
-            Instance = this;
-        }
+        Instance = this;
     }
 
     private void OnDestroy()
