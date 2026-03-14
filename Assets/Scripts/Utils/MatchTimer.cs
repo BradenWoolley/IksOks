@@ -13,6 +13,7 @@ public class MatchTimer : MonoBehaviour
 
     public float Duration { get; private set; }
 
+    // Todo: private?
     public bool IsRunning { get; private set; }
 
     #endregion
@@ -33,6 +34,11 @@ public class MatchTimer : MonoBehaviour
         Duration = 0f;
         IsRunning = false;
         OnTimerUpdated?.Invoke(TimerTools.FormatTime(0));
+    }
+
+    public void ResumeTimer()
+    {
+        IsRunning = true;
     }
 
     public void StartTimer()
