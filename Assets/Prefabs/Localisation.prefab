@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806f0696300aeac44a0e17efee222854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LeanLocalization::Lean.Localization.LeanLocalization
-  currentLanguage: Serbian
+  currentLanguage: English
   detectLanguage: 2
   defaultLanguage: English
   saveLoad: 1
@@ -127,12 +127,20 @@ MonoBehaviour:
     Text: "Zapo\u010Dni"
   - Name: CancelStart
     Text: Nazad
-  - Name: QuitGame
-    Text: Napusti?
+  - Name: ExitGame
+    Text: Napusti Igru
+  - Name: ExitGameMessage
+    Text: "Da li \u017Eelite da iza\u0111ete?"
+  - Name: CancelExit
+    Text: "Odka\u017Eite"
+  - Name: ConfirmExit
+    Text: "Iza\u0111ite"
   - Name: Settings
     Text: "Pode\u0161avanja"
   - Name: Language
     Text: Jezik
+  - Name: Back
+    Text: Nazad
   - Name: Music
     Text: Pozadinska muzika
   - Name: SFX
@@ -220,12 +228,20 @@ MonoBehaviour:
     Text: Start
   - Name: CancelStart
     Text: Cancel
-  - Name: QuitGame
-    Text: Quit Game?
+  - Name: ExitGame
+    Text: Exit Game
+  - Name: ExitGameMessage
+    Text: Are you sure you want to exit?
+  - Name: CancelExit
+    Text: Cancel
+  - Name: ConfirmExit
+    Text: Exit
   - Name: Settings
     Text: Settings
   - Name: Language
     Text: Language
+  - Name: Back
+    Text: Back
   - Name: Music
     Text: Background Music
   - Name: SFX
