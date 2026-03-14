@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5b65533e4684e10499c26d087c38a396
+guid: 6685310e4351df24d894bdfe9508840f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8824504297597884988
-    second: ic_launcher_background_0
+      213: 7716020006865092813
+    second: ic_launcher_foreground_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ic_launcher_background_0
+      name: ic_launcher_foreground_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 432
-        height: 432
+        x: 27
+        y: 27
+        width: 54
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c3ada3987efe67a70800000000000000
-      internalID: 8824504297597884988
+      spriteID: dc04005a05fc41b60800000000000000
+      internalID: 7716020006865092813
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ic_launcher_background_0: 8824504297597884988
+      ic_launcher_foreground_0: 7716020006865092813
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
