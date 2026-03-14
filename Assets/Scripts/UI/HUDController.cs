@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-// Todo: Sort out all hardcoded strings here and in all clases.
 public class HUDController : MonoBehaviour
 {
 
@@ -103,7 +102,7 @@ public class HUDController : MonoBehaviour
     private void OnSettingsHidden()
     {
         settingsPopup.OnHidden -= OnSettingsHidden;
-        // Only resume if game is still in progress
+        // Resume if game is still in progress.
         if (GameManager.Instance.State == GameState.Playing)
         {
             MatchTimer.Instance?.ResumeTimer();

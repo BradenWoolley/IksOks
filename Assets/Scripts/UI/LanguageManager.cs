@@ -22,7 +22,7 @@ public class LanguageManager : MonoBehaviour
     #region Methods
 
     /// <summary>
-    ///
+    /// Return the name of the current language.
     /// </summary>
     /// <returns></returns>
     public string GetCurrentLanguage()
@@ -31,7 +31,7 @@ public class LanguageManager : MonoBehaviour
     }
 
     /// <summary>
-    ///
+    /// Gets the translated word at the corresponding key.
     /// </summary>
     /// <param name="key"></param>
     /// <returns></returns>
@@ -54,12 +54,11 @@ public class LanguageManager : MonoBehaviour
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
+            return;
         }
 
-        else
-        {
-            Instance = this;
-        }
+        Instance = this;
+
         DontDestroyOnLoad(gameObject);
 
         localization = GetComponent<LeanLocalization>();

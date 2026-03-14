@@ -8,13 +8,18 @@ using UnityEngine;
 public class MatchTimer : MonoBehaviour
 {
 
+    #region Fields
+
+    private bool isRunning;
+
+    #endregion
+
+
     #region Properties
+
     public static MatchTimer Instance { get; private set; }
 
     public float Duration { get; private set; }
-
-    // Todo: private?
-    public bool IsRunning { get; private set; }
 
     #endregion
 
@@ -32,24 +37,24 @@ public class MatchTimer : MonoBehaviour
     public void ResetTimer()
     {
         Duration = 0f;
-        IsRunning = false;
+        isRunning = false;
         OnTimerUpdated?.Invoke(TimerTools.FormatTime(0));
     }
 
     public void ResumeTimer()
     {
-        IsRunning = true;
+        isRunning = true;
     }
 
     public void StartTimer()
     {
         Duration = 0f;
-        IsRunning = true;
+        isRunning = true;
     }
 
     public void StopTimer()
     {
-        IsRunning = false;
+        isRunning = false;
     }
 
     private void Awake()
@@ -81,7 +86,10 @@ public class MatchTimer : MonoBehaviour
         }
     }
 
-    private void OnPlayerWin(PlayerIndex _) => StopTimer();
+    private void OnPlayerWin(PlayerIndex _)
+    {
+        StopTimer();
+    }
 
     private void Start()
     {
@@ -91,7 +99,7 @@ public class MatchTimer : MonoBehaviour
 
     private void Update()
     {
-        if (IsRunning)
+        if (isRunning)
         {
             Duration += Time.deltaTime;
             OnTimerUpdated?.Invoke(TimerTools.FormatTime(Duration));

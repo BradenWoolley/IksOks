@@ -37,8 +37,8 @@ public class PlacementEffect : MonoBehaviour
         Vector3 worldPos = UIToWorldPosition(cellRect);
         transform.position = worldPos;
 
-        SetParticleColor(orbBurst, playerColor);
-        SetParticleColor(starScatter, playerColor);
+        ParticleTools.SetColor(orbBurst, playerColor);
+        ParticleTools.SetColor(starScatter, playerColor);
 
         orbBurst?.Play();
         starScatter?.Play();
@@ -61,17 +61,6 @@ public class PlacementEffect : MonoBehaviour
         {
             Instance = null;
         }
-    }
-
-    private void SetParticleColor(ParticleSystem ps, Color color)
-    {
-        if (ps == null)
-        {
-            return;
-        }
-
-        ParticleSystem.MainModule main = ps.main;
-        main.startColor = new ParticleSystem.MinMaxGradient(color);
     }
 
     private Vector3 UIToWorldPosition(RectTransform rectTransform)

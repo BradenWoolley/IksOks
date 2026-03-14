@@ -10,8 +10,6 @@ public class BoardTheme : ScriptableObject
     [Header("Board")]
     public Sprite BoardSprite;
 
-    public Color BackgroundColor = new Color(0.1f, 0.1f, 0.15f);
-
     public Color BoardColor = Color.white;
 
     [Header("Cell")]

@@ -11,7 +11,7 @@ public class Cell : MonoBehaviour
 
     [Header("References")]
     [SerializeField]
-    private Image backgroundImage; // tinted on win highlight
+    private Image backgroundImage;
 
     [SerializeField]
     private Image markImage;
@@ -58,7 +58,6 @@ public class Cell : MonoBehaviour
         if (backgroundImage != null)
         {
             backgroundImage.sprite = sprite;
-            Debug.Log(color);
             backgroundImage.color = color;
         }
     }
@@ -94,29 +93,25 @@ public class Cell : MonoBehaviour
             return;
         }
 
-        Color playerColor = GameManager.Instance.CurrentTurn == PlayerIndex.Player1
-            ? ThemeManager.Instance.Player1Theme.PlayerColour
-            : ThemeManager.Instance.Player2Theme.PlayerColour;
+        Color playerColor = ColorTools.GetCurrentPlayerColor();
 
         bool accepted = GameManager.Instance.TryPlaceMark(row, column);
 
-        if (!accepted)
+        if (accepted)
         {
-            return;
+            isOccupied = true;
+            button.interactable = false;
+
+            CellMark mark = GameManager.Instance.GetMark(row, column);
+            Sprite sprite = ThemeManager.Instance != null
+                ? ThemeManager.Instance.GetMarkSprite(mark)
+                : null;
+
+            SetMark(sprite);
+
+            AudioManager.Instance?.PlayPlacementSFX();
+            PlacementEffect.Instance?.Play(GetComponent<RectTransform>(), playerColor);
         }
-
-        isOccupied = true;
-        button.interactable = false;
-
-        CellMark mark = GameManager.Instance.GetMark(row, column);
-        Sprite sprite = ThemeManager.Instance != null
-            ? ThemeManager.Instance.GetMarkSprite(mark)
-            : null;
-
-        SetMark(sprite);
-
-        AudioManager.Instance?.PlayPlacementSFX();
-        PlacementEffect.Instance?.Play(GetComponent<RectTransform>(), playerColor);
     }
 
     private void OnDestroy()

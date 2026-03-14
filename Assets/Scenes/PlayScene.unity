@@ -11119,6 +11119,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2238386027098413726, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
+      propertyPath: m_text
+      value: Settings
+      objectReference: {fileID: 0}
     - target: {fileID: 2490548298753702639, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
       propertyPath: offsetMaxL.x
       value: 425
@@ -11250,6 +11254,22 @@ PrefabInstance:
     - target: {fileID: 4737854833047668722, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 11.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5174165794544189590, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
+      propertyPath: m_text
+      value: Background Music
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460086671969612216, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
+      propertyPath: m_text
+      value: Back
+      objectReference: {fileID: 0}
+    - target: {fileID: 7456779957743368241, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
+      propertyPath: m_text
+      value: Sound effects
+      objectReference: {fileID: 0}
+    - target: {fileID: 8463160702051421808, guid: 9d956fa267c64ef499b62a544d802404, type: 3}
+      propertyPath: m_text
+      value: Language
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
