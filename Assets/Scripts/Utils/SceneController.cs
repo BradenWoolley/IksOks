@@ -54,12 +54,6 @@ public class SceneController : MonoBehaviour
         gameOverPopup.Hide();
     }
 
-    /*public void RetryMatch()
-    {
-        gameOverPopup?.Hide();
-        StartMatch();
-    }*/
-
     public void StartMatch()
     {
         gameBoard.ResetBoard();
