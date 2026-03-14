@@ -51,8 +51,6 @@ public class Cell : MonoBehaviour
         {
             backgroundImage.enabled = true;
         }
-
-        SetWinHighlight(false);
     }
 
     public void SetTheme(Sprite sprite, Color color)
@@ -83,19 +81,6 @@ public class Cell : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Called by GameBoard when this cell is part of the winning line.
-    /// </summary>
-    public void SetWinHighlight(bool active)
-    {
-        if (backgroundImage != null)
-        {
-            /*backgroundImage.color = active
-            ? new Color(1f, 0.85f, 0.2f, 1f)
-            : Color.white;*/
-        }
-    }
-
     private void Awake()
     {
         button = GetComponent<Button>();
@@ -110,8 +95,8 @@ public class Cell : MonoBehaviour
         }
 
         Color playerColor = GameManager.Instance.CurrentTurn == PlayerIndex.Player1
-            ? ThemeManager.Instance.ActiveTheme.Player1Color
-            : ThemeManager.Instance.ActiveTheme.Player2Color;
+            ? ThemeManager.Instance.Player1Theme.PlayerColour
+            : ThemeManager.Instance.Player2Theme.PlayerColour;
 
         bool accepted = GameManager.Instance.TryPlaceMark(row, column);
 

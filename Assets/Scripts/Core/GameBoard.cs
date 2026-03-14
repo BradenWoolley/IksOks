@@ -63,14 +63,14 @@ public class GameBoard : MonoBehaviour
         {
             int firstIndex = winIndices[0];
             // Todo: Simplify.
-            int lastIndex = winIndices[winIndices.Length - 1];
+            int lastIndex = winIndices[^1];
 
             RectTransform fromCell = cells[firstIndex / boardSize, firstIndex % boardSize].GetComponent<RectTransform>();
             RectTransform toCell = cells[lastIndex / boardSize, lastIndex % boardSize].GetComponent<RectTransform>();
 
             Color winnerColor = GameManager.Instance.CurrentTurn == PlayerIndex.Player1
-            ? ThemeManager.Instance.ActiveTheme.Player1Color
-            : ThemeManager.Instance.ActiveTheme.Player2Color;
+            ? ThemeManager.Instance.Player1Theme.PlayerColour
+            : ThemeManager.Instance.Player2Theme.PlayerColour;
 
             strikeLine.Animate(fromCell, toCell, winnerColor);
         }
@@ -88,12 +88,6 @@ public class GameBoard : MonoBehaviour
             boardBackground.sprite = boardTheme.BoardSprite;
             boardBackground.color = boardTheme.BoardColor;
         }
-
-        /*if (boardBackground != null && ThemeManager.Instance != null)
-        {
-            boardBackground.sprite = ThemeManager.Instance.ActiveTheme.BoardSprite;
-            boardBackground.color = ThemeManager.Instance.ActiveTheme.BoardColor;
-        }*/
     }
 
     private void GenerateCells()
@@ -122,10 +116,7 @@ public class GameBoard : MonoBehaviour
                 Image cellImage = cell.GetComponent<Image>();
                 if (cellImage != null && boardTheme != null)
                 {
-                    Debug.Log("HELO!");
                     cell.SetTheme(boardTheme.CellSprite, boardTheme.CellColor);
-                    /*cellImage.sprite = boardTheme.CellSprite;
-                    cell.SetBackground(boardTheme.CellColor);*/
                 }
 
                 cell.name = $"Cell_{row}_{col}";
@@ -151,12 +142,11 @@ public class GameBoard : MonoBehaviour
 
     private void HandleWinLine(int[] winIndices, WinDirection direction)
     {
-        // Highlight winning cells — each Cell knows how to highlight itself
+        // Highlight winning cells
         foreach (int index in winIndices)
         {
             int row = index / boardSize;
             int col = index % boardSize;
-            cells[row, col].SetWinHighlight(true);
         }
 
         DrawStrikeLine(winIndices);

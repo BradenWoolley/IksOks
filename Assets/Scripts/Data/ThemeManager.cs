@@ -8,9 +8,14 @@ public class ThemeManager : MonoBehaviour
 
     [Header("Default Theme (used if none selected)")]
     [SerializeField]
-    private ThemeData defaultTheme;
+    private ThemeData defaultPlayer1Theme;
 
-    private ThemeData activeTheme;
+    [SerializeField]
+    private ThemeData defaultPlayer2Theme;
+
+    private ThemeData player1Theme;
+
+    private ThemeData player2Theme;
 
 
     #endregion
@@ -20,7 +25,8 @@ public class ThemeManager : MonoBehaviour
 
     public static ThemeManager Instance { get; private set; }
 
-    public ThemeData ActiveTheme => activeTheme;
+    public ThemeData Player1Theme => player1Theme;
+    public ThemeData Player2Theme => player2Theme;
 
     #endregion
 
@@ -29,22 +35,24 @@ public class ThemeManager : MonoBehaviour
 
     public Sprite GetMarkSprite(CellMark mark)
     {
-        // Todo: Would prefer one return
-        if (activeTheme == null)
-        {
-            return null;
-        }
-
         return mark == CellMark.X
-            ? activeTheme.XSprite
-            : activeTheme.OSprite;
+            ? player1Theme?.PlayerSprite
+            : player2Theme?.PlayerSprite;
     }
 
-    public void SetTheme(ThemeData theme)
+    public void SetPlayer1Theme(ThemeData theme)
     {
         if (theme != null)
         {
-            activeTheme = theme;
+            player1Theme = theme;
+        }
+    }
+
+    public void SetPlayer2Theme(ThemeData theme)
+    {
+        if (theme != null)
+        {
+            player2Theme = theme;
         }
     }
 
@@ -61,7 +69,9 @@ public class ThemeManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
-        activeTheme = defaultTheme;
+
+        player1Theme = defaultPlayer1Theme;
+        player2Theme = defaultPlayer2Theme;
     }
 
     private void OnDestroy()
