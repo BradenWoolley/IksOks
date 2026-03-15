@@ -80,7 +80,10 @@ public class GameManager : MonoBehaviour
             return false;
         }
 
-        board[index] = CurrentTurn == PlayerIndex.Player1 ? CellMark.X : CellMark.O;
+        board[index] = CurrentTurn == PlayerIndex.Player1
+            ? CellMark.X
+            : CellMark.O;
+
         movesPlayed++;
 
         if (rules.CheckWin(board, CurrentTurn, out int[] winLine, out WinDirection direction))
@@ -88,6 +91,9 @@ public class GameManager : MonoBehaviour
             State = GameState.GameOver;
             OnWinLineFound?.Invoke(winLine, direction);
             OnPlayerWin?.Invoke(CurrentTurn);
+            // Final increment
+            Debug.Log(CurrentTurn.ToString());
+            SwitchTurn();
             return true;
         }
 
@@ -95,6 +101,8 @@ public class GameManager : MonoBehaviour
         {
             State = GameState.GameOver;
             OnDraw?.Invoke();
+            // Final increment
+            SwitchTurn();
             return true;
         }
 
