@@ -26,7 +26,7 @@ A local multiplayer Tic-Tac-Toe game built in Unity. Designed for two players on
 
 ## Gameplay
 
-Classic tic-tac-toe gameplay. The first player to connect three marks in a row, either horizontally, vertically, or diagonally, wins. If the board is filled without a winner, the match ends in a draw.
+Classic tic-tac-toe gameplay. The first player to connect three markers in a row, either horizontally, vertically, or diagonally, wins. If the board is filled without a winner, the match ends in a draw.
 
 ---
 
@@ -50,15 +50,15 @@ There are two distinct Manager categories to avoid stale singleton references ac
 This separation helps prevent stale event subscribers or instance duplications when transitioning between scenes.
 
 ### Basic Game Loop
-Once the match begins when both players alternate turns tapping empty cells to place their mark. After each placement, GameManager checks for a win or draw via IGameRules. Match time and player move count is displayed in the HUD.
-A win triggers the strike line animation across the winning cells and opens the Game Over pop-up. A draw opens the pop-up immediately. 
+Once the match begins when both players alternate turns tapping empty cells to place their marker. After each placement, GameManager checks for a win or draw via IGameRules. Match time and player move count is displayed on the HUD.
+A win triggers the strike line animation across the winning cells and opens the Game Over pop-up. A draw opens the pop-up without a strike animation and different text. 
 From the GameOver pop-up, players can retry the match or return to the main menu. Match duration and result are recorded to persistent storage at the end of every match.
 
 Rather than direct references there is extensive use of events. An example of this in the core loop is `GameManager` broadcasts:
-- `OnTurnChanged` - fires when the active player changes
-- `OnPlayerWin` - fires with the winning `PlayerIndex`
-- `OnDraw` - fires when the board is full with no winner
-- `OnWinLineFound` - fires with winning cell indices and direction for the strike animation
+- `OnTurnChanged` - fires when the active player changes.
+- `OnPlayerWin` - fires with the winning `PlayerIndex`.
+- `OnDraw` - fires when the board is full with no winner.
+- `OnWinLineFound` - fires with winning cell indices and direction for the strike animation.
 
 ### Scalable Game Rules - `IGameRules`
 Win result detection is abstracted behind an `IGameRules` interface implemented by the `StandardGameRules` ScriptableObject. `GameManager` delegates all rule logic to this object, meaning it has zero knowledge of how wins are detected.
@@ -68,7 +68,7 @@ To create a new ruleset e.g. 4×4 board, create a new `ScriptableObjects/GameRul
 ### Theme System
 Visual themes are split into two ScriptableObjects:
 
-- **`ThemeData`** - player-specific: mark sprite and player colour. Each player selects their own `ThemeData` independently before the match starts via the `ThemeSelectionPopup`
+- **`ThemeData`** - player-specific: marker sprite and player colour. Each player selects their own `ThemeData` independently before the match starts via the `ThemeSelectionPopup`
 - **`BoardTheme`** - designer-set: board background sprite, board colour, cell sprite, cell colour. Configured once by the designer and are not player-selectable.
 
 Adding a new theme requires only creating a new `ThemeData` asset - no code changes.
@@ -107,7 +107,7 @@ Match results are serialised as a `StatsData` object to JSON and stored via Play
 - **Dependency Injection** - Given the scope of the project no dependency injection was implemented in favour of singletons, however this means there is still some coupling of code. Ideally all singletons would be replaced with a service e.g. `IAudioService` to be called instead of `AudioManager.Instance?.SomeMethod`.
 - **World** - The game was implemented entirely on the `Canvas` and is therefore 100% UI-based. This eased development especially regarding orientation management however for a real-world game it would be more ideal to have implemented the game elements in world space and to have some state machine to reset the `Camera` position to accomodate the change in orientation.
 - **Pop-up animations** are currently coroutine-based. Replacing with Lean Transition would give designers direct control over timing and curves.
-- **Strike line visual impact** - the strike line could be further enhanced with a winner colour tint and glow effect for a more satisfying win moment. Maybe even additional particle effects.
+- **Strike line visual impact** - The strike line could be further enhanced with a colour tint and glow effect matching the marker colour of the winning player and maybe even additional particle effects.
 - **New Games** - `IGameRules` and the existing turn system are designed to accommodate new game types e.g. an AI player without changes to `GameManager`.
 - **Board size** - `StandardGameRules` accepts any board size via its ScriptableObject. A 4×4 or 5×5 variant requires only a new asset and UI layout adjustment.
 - **Progression** - currently statistics are just that, statistics. Player win counts could be used to unlock new themes, all themes are currently available but with more assets they could be locked behind win counters.
