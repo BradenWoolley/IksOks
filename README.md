@@ -116,7 +116,7 @@ Match results are serialised as a `StatsData` object to JSON and stored via Play
 
 ## Attribution
 
-- App icons by [cah nggunung](https://www.flaticon.com/free-icons/three-in-a-row) via Flaticon
+- App icons by [cah nggunung](https://www.flaticon.com/free-icon/tic-tac-toe_7604845) via Flaticon
 - Code conventions followed: https://stackoverflow.com/a/310967
 
 ---
