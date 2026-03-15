@@ -105,6 +105,7 @@ Match results are serialised as a `StatsData` object to JSON and stored via Play
 
 ## Known Limitations & Future Improvements
 - **Dependency Injection** - Given the scope of the project no dependency injection was implemented in favour of singletons, however this means there is still some coupling of code. Ideally all singletons would be replaced with a service e.g. `IAudioService` to be called instead of `AudioManager.Instance?.SomeMethod`.
+- **World** - The game was implemented entirely on the `Canvas` and is therefore 100% UI-based. This eased development especially regarding orientation management however for a real-world game it would be more ideal to have implemented the game elements in world space and to have some state machine to reset the `Camera` position to accomodate the change in orientation.
 - **Pop-up animations** are currently coroutine-based. Replacing with Lean Transition would give designers direct control over timing and curves.
 - **Strike line visual impact** - the strike line could be further enhanced with a winner colour tint and glow effect for a more satisfying win moment. Maybe even additional particle effects.
 - **New Games** - `IGameRules` and the existing turn system are designed to accommodate new game types e.g. an AI player without changes to `GameManager`.
