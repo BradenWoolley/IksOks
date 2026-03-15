@@ -15,12 +15,12 @@ A local multiplayer Tic-Tac-Toe game built in Unity. Designed for two players on
 2. Open the project in Unity
 3. Open `PlayScene` from `Assets/Scenes`
 4. Press Play in the Editor.
-4a. Download the .apk from Releases 
 
 ### Build
 - Set target platform to **Android**
 - Ensure `PlayScene` is index 0 and `GameScene` is index 1 in Build Settings
 - Build and run
+- (Optional) To run without building download the .apk from Releases.
 
 ---
 
