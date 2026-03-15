@@ -37,7 +37,7 @@ The project was implemented to be easy for asset changes via ScriptableObjects &
 | Scene | Main elements |
 |---|---|
 | `PlayScene` | Main menu - Theme selection pop-up, Game Statistics pop-up, Settings pop-up, Exit pop-up |
-| `GameScene` | Gameplay - Game Board, GUD/UI, Game over pop-up, Settings pop-up |
+| `GameScene` | Gameplay - Game Board, GUI/UI, Game over pop-up, Settings pop-up |
 
 ### Manager Architecture
 There are two distinct Manager categories to avoid stale singleton references across scene loads:
