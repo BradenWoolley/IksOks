@@ -78,7 +78,7 @@ Adding a new theme requires only creating a new `ThemeData` asset - no code chan
 
 ### Localisation
 Full localisation support via Lean.Localisation. Currently supports **English** and **Serbian** (Latin script only). The `LanguageManager` singleton wraps Lean, abstracting the localisation library from all other systems - swapping libraries requires changes only to `LanguageManager`.
-Additional languages are addable via using a text file or csv for the language and only requires editing the `Lean.Localisation` component on `LanguageManager`
+Additional languages are addable via using a text file or csv for the language and only requires editing the `Lean.Localisation` component on `LanguageManager`.
 
 ### Pop-up menus
 All pop-ups inherit from abstract `PopupBase` which shows/hides all popups. The animation is currently coroutine-based but would be ideally replaced with an existing library like Lean Transition or custom inhouse animations for greater designer control.
@@ -87,7 +87,8 @@ All pop-ups inherit from abstract `PopupBase` which shows/hides all popups. The 
 Match results are serialised as a `StatsData` object to JSON and stored via PlayerPrefs. Adding a new statistic requires only adding a field to `StatsData`. A more secure storage for player data could be implemented in this wrapper without affecting other code.
 
 ### Editor Tools
-- **`MenuItems`** - adds a **Tools → ClearPlayerPrefs** menu item for resetting saved stats during development
+- **`MenuItems`** - adds a **Tools -> ClearPlayerPrefs** menu item for resetting saved stats during development.
+- **`LanguageEditor` - adds a **Tools -> LocalisationEditor** menu item to open a editor tool to add new translations for the game. If the language doesn't have support a new .txt folder is created otherwise the phrase is appended to the end of the .txt folder in the format: KeyName,"Hello World"
 
 ---
 
