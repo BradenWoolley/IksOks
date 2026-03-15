@@ -56,7 +56,7 @@ public class GameBoard : MonoBehaviour
         }
     }
 
-    // Clears any forgotten objects by designer.
+    // Clears any forgotten objects by designer in edit mode.
     private void ClearBoard()
     {
         foreach (Transform child in boardContainer)
@@ -135,7 +135,7 @@ public class GameBoard : MonoBehaviour
 
         cell.name = $"Cell_{row}_{col}";
 
-        // Position within the container
+        // Position within the container.
         RectTransform rect = cell.GetComponent<RectTransform>();
         rect.sizeDelta = new Vector2(cellSize, cellSize);
 

@@ -3,7 +3,9 @@ public interface IGameRules
 
     #region Properties
 
-    /// <summary>Board size for this rule set (e.g. 3 for a 3x3 board).</summary>
+    /// <summary>
+    /// Board size for this rule set (e.g. 3 for a 3x3 board).
+    /// </summary>
     int BoardSize { get; }
 
     #endregion
@@ -17,7 +19,7 @@ public interface IGameRules
     bool CheckDraw(CellMark[] board, int movesPlayed);
 
     /// <summary>
-    /// Check whether the current player has won.
+    /// Check if the current player has won.
     /// Returns true if a winning line is found, and outputs the winning cell
     /// indices and the direction of the line.
     /// </summary>

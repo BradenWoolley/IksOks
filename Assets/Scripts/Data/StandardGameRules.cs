@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -33,55 +34,37 @@ public class StandardGameRules : ScriptableObject, IGameRules
             ? CellMark.X
             : CellMark.O;
 
-        for (int row = 0; row < boardSize; row++)
+        foreach ((int[] indices, WinDirection dir) in GetAllLines())
         {
-            int[] indices = GetRowIndices(row);
             if (IsLineComplete(board, mark, indices))
             {
                 winLine = indices;
-                direction = WinDirection.Horizontal;
-                return true;
-            }
-        }
-
-        for (int col = 0; col < boardSize; col++)
-        {
-            int[] indices = GetColumnIndices(col);
-            if (IsLineComplete(board, mark, indices))
-            {
-                winLine = indices;
-                direction = WinDirection.Vertical;
-                return true;
-            }
-
-        }
-
-        // Diagonal top-left to bottom-right
-        {
-            int[] indices = GetDiagonalIndices(false);
-            if (IsLineComplete(board, mark, indices))
-            {
-                winLine = indices;
-                direction = WinDirection.DiagonalForward;
-                return true;
-            }
-        }
-
-        // Diagonal top-right to bottom-left
-        {
-            int[] indices = GetDiagonalIndices(true);
-            if (IsLineComplete(board, mark, indices))
-            {
-                winLine = indices;
-                direction = WinDirection.DiagonalBackward;
+                direction = dir;
                 return true;
             }
         }
 
         winLine = null;
-        direction = WinDirection.Horizontal;
+        direction = default;
         return false;
     }
+
+    private IEnumerable<(int[] indices, WinDirection dir)> GetAllLines()
+    {
+        for (int i = 0; i < boardSize; i++)
+        {
+            yield return (GetRowIndices(i), WinDirection.Horizontal);
+        }
+
+        for (int i = 0; i < boardSize; i++)
+        {
+            yield return (GetColumnIndices(i), WinDirection.Vertical);
+        }
+
+        yield return (GetDiagonalIndices(false), WinDirection.DiagonalForward);
+        yield return (GetDiagonalIndices(true), WinDirection.DiagonalBackward);
+    }
+
 
     private int[] GetColumnIndices(int col)
     {

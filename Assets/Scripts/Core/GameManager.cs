@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private StandardGameRules rules;
 
-    // index = row * boardSize + col
     private CellMark[] board;
 
     private int movesPlayed;
@@ -52,7 +51,9 @@ public class GameManager : MonoBehaviour
         return board[row * BoardSize + col];
     }
 
-    /// <summary>Begin or restart a match.</summary>
+    /// <summary>
+    /// Begin or restart a match.
+    /// </summary>
     public void StartGame()
     {
         board = new CellMark[BoardSize * BoardSize];
@@ -69,37 +70,36 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public bool TryPlaceMark(int row, int col)
     {
-        if (State != GameState.Playing)
-        {
-            return false;
-        }
+        bool markPlaced = false;
 
         int index = row * BoardSize + col;
-        if (board[index] != CellMark.Empty)
+
+        if (State == GameState.Playing && board[index] == CellMark.Empty)
         {
-            return false;
+            board[index] = CurrentTurn == PlayerIndex.Player1
+            ? CellMark.X
+            : CellMark.O;
+
+            movesPlayed++;
+
+            if (rules.CheckWin(board, CurrentTurn, out int[] winLine, out WinDirection direction))
+            {
+                State = GameState.GameOver;
+                OnWinLineFound?.Invoke(winLine, direction);
+                OnPlayerWin?.Invoke(CurrentTurn);
+            }
+
+            else if (rules.CheckDraw(board, movesPlayed))
+            {
+                State = GameState.GameOver;
+                OnDraw?.Invoke();
+            }
+
+            SwitchTurn();
+            markPlaced = true;
         }
 
-        board[index] = CurrentTurn == PlayerIndex.Player1 ? CellMark.X : CellMark.O;
-        movesPlayed++;
-
-        if (rules.CheckWin(board, CurrentTurn, out int[] winLine, out WinDirection direction))
-        {
-            State = GameState.GameOver;
-            OnWinLineFound?.Invoke(winLine, direction);
-            OnPlayerWin?.Invoke(CurrentTurn);
-            return true;
-        }
-
-        if (rules.CheckDraw(board, movesPlayed))
-        {
-            State = GameState.GameOver;
-            OnDraw?.Invoke();
-            return true;
-        }
-
-        SwitchTurn();
-        return true;
+        return markPlaced;
     }
 
     private void Awake()
