@@ -4,8 +4,8 @@ using UnityEngine;
 /// <summary>
 /// Plays particle effects along the strike line as it draws.
 /// Attach to the same GameObject as StrikeLine.
-/// - Trail: continuous particles along the line path (particle4 - small stars)
-/// - Burst: one-shot explosion at the endpoint when line finishes (particle1 - bright star)
+/// - Trail: continuous particles along the line path.
+/// - Burst: one-shot explosion at the endpoint when line finishes.
 /// </summary>
 public class StrikeEffect : MonoBehaviour
 {
@@ -14,10 +14,10 @@ public class StrikeEffect : MonoBehaviour
 
     [Header("Particle Systems")]
     [SerializeField]
-    private ParticleSystem burstEffect;  // particle1 — bright cross star
+    private ParticleSystem burstEffect;
 
     [SerializeField]
-    private ParticleSystem trailEffect;  // particle4 — small stars
+    private ParticleSystem trailEffect;
 
     #endregion
 

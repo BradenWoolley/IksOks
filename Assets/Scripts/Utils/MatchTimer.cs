@@ -15,19 +15,21 @@ public class MatchTimer : MonoBehaviour
     #endregion
 
 
+    #region Events
+
+    /// <summary>
+    /// Fired every second with the updated duration string.
+    /// </summary>
+    public event Action<string> OnTimerUpdated;
+
+    #endregion
+
+
     #region Properties
 
     public static MatchTimer Instance { get; private set; }
 
     public float Duration { get; private set; }
-
-    #endregion
-
-
-    #region Events
-
-    /// <summary>Fired every second with the updated duration string.</summary>
-    public event Action<string> OnTimerUpdated;
 
     #endregion
 

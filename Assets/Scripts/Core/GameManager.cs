@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private StandardGameRules rules;
 
-    // index = row * boardSize + col
     private CellMark[] board;
 
     private int movesPlayed;

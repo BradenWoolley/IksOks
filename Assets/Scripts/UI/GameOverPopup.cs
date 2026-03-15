@@ -38,14 +38,15 @@ public class GameOverPopup : PopupBase
 
     #region Methods
 
-    /// <summary>Set display data then call Show().</summary>
+    /// <summary>
+    /// Set display data then call Show().
+    /// </summary>
     public void Prepare(string result, string duration)
     {
         pendingResult = result;
         pendingDuration = duration;
     }
 
-    /// <inheritdoc />
     protected override void OnBeforeShow()
     {
         if (resultText)

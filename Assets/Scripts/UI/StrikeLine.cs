@@ -79,7 +79,7 @@ public class StrikeLine : MonoBehaviour
         Vector2 direction = (toPos - fromPos).normalized;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        // Set position and rotation — width animates from 0 to fullLength.
+        // Set position and rotation - width animates from 0 to fullLength.
         rectTransform.anchoredPosition = midpoint;
         rectTransform.localRotation = Quaternion.Euler(0f, 0f, angle);
         rectTransform.sizeDelta = new Vector2(0f, lineThickness);

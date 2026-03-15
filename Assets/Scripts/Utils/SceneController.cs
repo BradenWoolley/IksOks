@@ -31,9 +31,19 @@ public class SceneController : MonoBehaviour
     [SerializeField]
     private HUDController hud;
 
-    private enum PendingAction { None, Retry, Exit }
-
     private PendingAction pendingAction = PendingAction.None;
+
+    #endregion
+
+
+    #region Enums
+
+    private enum PendingAction
+    {
+        None,
+        Retry,
+        Exit
+    }
 
     #endregion
 
