@@ -11,15 +11,15 @@ A local multiplayer Tic-Tac-Toe game built in Unity. Designed for two players on
 - Android build module installed
 
 ### Running the Project
-1. Clone the repository
-2. Open the project in Unity
-3. Open `PlayScene` from `Assets/Scenes`
+1. Clone the repository.
+2. Open the project in Unity.
+3. Open `PlayScene` from `Assets/Scenes`.
 4. Press Play in the Editor.
 
 ### Build
 - Set target platform to **Android**
-- Ensure `PlayScene` is index 0 and `GameScene` is index 1 in Build Settings
-- Build and run
+- Ensure `PlayScene` is index 0 and `GameScene` is index 1 in Build Settings.
+- Build and run.
 - (Optional) To run without building download the .apk from Releases.
 
 ---
@@ -43,15 +43,15 @@ The project was implemented to be easy for asset changes via ScriptableObjects &
 ### Manager Architecture
 There are two distinct Manager categories to avoid stale singleton references across scene loads:
 
-**Persistent Managers** (`PersistentManagers`) - survive scene transitions.
+**Persistent Managers** (`AudioManager`, `LanguageManager`, ...) - survive scene transitions.
 
-**Scene-Specific Managers** (`GameManagers`) - created on every GameScene load, destroyed when returning to PlayScene:
+**Scene-Specific Managers** (`GameManager`, ...) - created on every GameScene load, destroyed when returning to PlayScene.
 
 This separation helps prevent stale event subscribers or instance duplications when transitioning between scenes.
 
 ### Basic Game Loop
 Once the match begins when both players alternate turns tapping empty cells to place their marker. After each placement, GameManager checks for a win or draw via IGameRules. Match time and player move count is displayed on the HUD.
-A win triggers the strike line animation across the winning cells and opens the Game Over pop-up. A draw opens the pop-up without a strike animation and different text. 
+A win triggers the strike line animation across the winning cells and opens the Game Over pop-up. A draw opens the pop-up without a strike animation and with a different text. 
 From the GameOver pop-up, players can retry the match or return to the main menu. Match duration and result are recorded to persistent storage at the end of every match.
 
 Rather than direct references there is extensive use of events. An example of this in the core loop is `GameManager` broadcasts:
@@ -78,7 +78,7 @@ Adding a new theme requires only creating a new `ThemeData` asset - no code chan
 
 ### Localisation
 Full localisation support via Lean.Localisation. Currently supports **English** and **Serbian** (Latin script only). The `LanguageManager` singleton wraps Lean, abstracting the localisation library from all other systems - swapping libraries requires changes only to `LanguageManager`.
-Additional languages are addable via using a text file or csv for the language and only requires editing the `Lean.Localisation` component on `LanguageManager`.
+Additional languages are addable via using a text file or CSV for the language and only requires editing the `Lean.Localisation` component on `LanguageManager`.
 
 ### Pop-up menus
 All pop-ups inherit from abstract `PopupBase` which shows/hides all popups. The animation is currently coroutine-based but would be ideally replaced with an existing library like Lean Transition or custom inhouse animations for greater designer control.
