@@ -102,7 +102,7 @@ Match results are serialised as a `StatsData` object to JSON and stored via Play
 ---
 
 ## Known Limitations & Future Improvements
-
+- **Dependency Injection** - Given the scope of the project no dependency injection was implemented in favour of singletons, however this means there is still some coupling of code. Ideally all singletons would be replaced with a service e.g. `IAudioService` to be called instead of `AudioManager.Instance?.SomeMethod`.
 - **Pop-up animations** are currently coroutine-based. Replacing with Lean Transition would give designers direct control over timing and curves.
 - **Strike line visual impact** - the strike line could be further enhanced with a winner colour tint and glow effect for a more satisfying win moment. Maybe even additional particle effects.
 - **New Games** - `IGameRules` and the existing turn system are designed to accommodate new game types e.g. an AI player without changes to `GameManager`.
@@ -114,3 +114,5 @@ Match results are serialised as a `StatsData` object to JSON and stored via Play
 ## Attribution
 
 - App icons by [cah nggunung](https://www.flaticon.com/free-icons/three-in-a-row) via Flaticon
+
+---
