@@ -88,7 +88,7 @@ Match results are serialised as a `StatsData` object to JSON and stored via Play
 
 ### Editor Tools
 - **`MenuItems`** - adds a **Tools -> ClearPlayerPrefs** menu item for resetting saved stats during development.
-- **`LanguageEditor` - adds a **Tools -> LocalisationEditor** menu item to open a editor tool to add new translations for the game. If the language doesn't have support a new .txt folder is created otherwise the phrase is appended to the end of the .txt folder in the format: KeyName,"Hello World"
+- **`LanguageEditor`** - adds a **Tools -> LocalisationEditor** menu item to open a editor tool to add new translations for the game. If the language doesn't have support a new .txt folder is created otherwise the phrase is appended to the end of the .txt folder in the format: KeyName,"Hello World"
 
 ---
 
