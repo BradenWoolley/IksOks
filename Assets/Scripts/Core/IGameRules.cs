@@ -3,7 +3,9 @@ public interface IGameRules
 
     #region Properties
 
-    /// <summary>Board size for this rule set (e.g. 3 for a 3x3 board).</summary>
+    /// <summary>
+    /// Board size for this rule set (e.g. 3 for a 3x3 board).
+    /// </summary>
     int BoardSize { get; }
 
     #endregion

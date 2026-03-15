@@ -52,7 +52,9 @@ public class GameManager : MonoBehaviour
         return board[row * BoardSize + col];
     }
 
-    /// <summary>Begin or restart a match.</summary>
+    /// <summary>
+    /// Begin or restart a match.
+    /// </summary>
     public void StartGame()
     {
         board = new CellMark[BoardSize * BoardSize];
@@ -69,45 +71,36 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public bool TryPlaceMark(int row, int col)
     {
-        if (State != GameState.Playing)
-        {
-            return false;
-        }
+        bool markPlaced = false;
 
         int index = row * BoardSize + col;
-        if (board[index] != CellMark.Empty)
-        {
-            return false;
-        }
 
-        board[index] = CurrentTurn == PlayerIndex.Player1
+        if (State == GameState.Playing && board[index] == CellMark.Empty)
+        {
+            board[index] = CurrentTurn == PlayerIndex.Player1
             ? CellMark.X
             : CellMark.O;
 
-        movesPlayed++;
+            movesPlayed++;
 
-        if (rules.CheckWin(board, CurrentTurn, out int[] winLine, out WinDirection direction))
-        {
-            State = GameState.GameOver;
-            OnWinLineFound?.Invoke(winLine, direction);
-            OnPlayerWin?.Invoke(CurrentTurn);
-            // Final increment
-            Debug.Log(CurrentTurn.ToString());
+            if (rules.CheckWin(board, CurrentTurn, out int[] winLine, out WinDirection direction))
+            {
+                State = GameState.GameOver;
+                OnWinLineFound?.Invoke(winLine, direction);
+                OnPlayerWin?.Invoke(CurrentTurn);
+            }
+
+            else if (rules.CheckDraw(board, movesPlayed))
+            {
+                State = GameState.GameOver;
+                OnDraw?.Invoke();
+            }
+
             SwitchTurn();
-            return true;
+            markPlaced = true;
         }
 
-        if (rules.CheckDraw(board, movesPlayed))
-        {
-            State = GameState.GameOver;
-            OnDraw?.Invoke();
-            // Final increment
-            SwitchTurn();
-            return true;
-        }
-
-        SwitchTurn();
-        return true;
+        return markPlaced;
     }
 
     private void Awake()
