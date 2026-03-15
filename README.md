@@ -94,7 +94,7 @@ Match results are serialised as a `StatsData` object to JSON and stored via Play
 
 ## Third Party Tools
 
-| Tool |  |
+| Tool | Usage |
 |---|---|
 | **Lean GUI** | LeanToggle for Settings toggles |
 | **Lean Localisation** | String localisation system |
